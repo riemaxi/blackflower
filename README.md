@@ -1,2 +1,2 @@
 # blackflower
-Blackflower is a telecom platform with emphasis on Multi Edge Computingh (MEC)
+Blackflower is a Telecom platform with emphasis on Multi Edge Computingh (MEC)
