@@ -1,23 +1,36 @@
 
+class DB extends require('./db'){
+	constructor(host){
+		super(host)
+	}
+
+	ready(result, config){
+		console.log('db session initialized ...')
+		this.close()
+	}
+
+	error(err){
+		console.log('initialize::error',err)
+	}
+}
+
 class Session extends require('./session'){
 	constructor(es, config){
 		super(es, config.channel.out, config.token, config.password, config.peer)
-
-		this.delay = config.delay
-		this.reachout(config)
-	}
+}
 
 	greeting(token, password, peer){
+		console.log('Session ', token, ' is on ...')
 	}
 
-	response(sender, token, password){
+	response(sender, token, password, data){
 		return {
 			type : 0,
 			timestamp : Date.now(),
 			sender : token,
 			recipient : sender,
 			password : password,
-			body : 'pow'
+			body : data || {}
 		}
 	}
 
@@ -27,13 +40,10 @@ class Session extends require('./session'){
 			return
 		}
 
-		setTimeout( () => {
-			let r = this.response(data.sender, token, password)
+		let r = this.response(data.sender, token, password, data.body)
 
-			console.log(r.timestamp, 'sending', r.body, 'from', token, 'to', data.sender)
-			this.send(r)		
-		},
-		this.delay)
+		console.log(r.timestamp, 'sending', r.body, 'from', token, 'to', data.sender)
+		this.send(r)		
 	}
 
 	reachout(config){
@@ -59,4 +69,25 @@ class Lobby extends require('./lobby'){
 	}
 }
 
-new Lobby( require('./config') )
+
+let config = {...require('./config')}
+var db = new DB(config.db)
+
+
+
+let size = 6
+
+let booter = setInterval(()=> {
+	if (size > 0){
+		let sessConfig = {...config}
+
+		sessConfig.token = [5,0,0,0,0,size-1]
+
+		new Lobby(sessConfig)
+
+		size--
+	}else{
+		clearInterval(booter)
+		console.log('all sessions on ...')
+	}
+}, 4000)

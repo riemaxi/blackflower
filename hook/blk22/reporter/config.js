@@ -10,6 +10,14 @@ const config = {
 	channel : {
 		in : 'http://129.151.198.55:50000',
 		out : 'http://129.151.198.55:10000'
+	},
+	
+	portal : {
+		path : './portal.session.js',
+		html : './html',
+		port: 60000,
+		greeting: 'Silqoin portal on PORT'
+
 	}
 }
 

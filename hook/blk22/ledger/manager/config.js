@@ -1,9 +1,9 @@
 const config = {
 	band : 0,
-	token : [0,0,0,0,0,0],
+	token : [4,0,0,0,0,0],
 	peer : [0,0,0,0,0,0],
 	password: "0000000000000000",
-	delay : 1000,
+	delay : 10,
 
 	login : 'http://129.151.198.55:3000/login',
 

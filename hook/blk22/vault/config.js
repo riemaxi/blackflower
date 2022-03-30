@@ -19,7 +19,8 @@ const config = {
 			user: 'root',
 			host: 'localhost',
 			database: 'vault',
-			password: 'password'
+			password: 'password',
+			multipleStatements : true
 		}
 	}
 

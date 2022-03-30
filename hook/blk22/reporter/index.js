@@ -1,21 +1,20 @@
-
 class Portal extends require('./portal'){
-	constructor(config){
-		super(config)
+	constructor(config, handle){
+		super(config, handle)
 	}
 }
+
 
 class Session extends require('./session'){
 	constructor(es, config){
 		super(es, config.channel.out, config.token, config.password, config.peer)
 
 		this.delay = config.delay
-		this.reachout(config)
-
-		new Portal(config.portal)
+		//this.reachout(config)
 	}
 
 	greeting(token, password, peer){
+		console.log('Reporter is on')
 	}
 
 	response(sender, token, password){
@@ -35,13 +34,7 @@ class Session extends require('./session'){
 			return
 		}
 
-		setTimeout( () => {
-			let r = this.response(data.sender, token, password)
-
-			console.log(r.timestamp, 'sending', r.body, 'from', token, 'to', data.sender)
-			this.send(r)		
-		},
-		this.delay)
+		reporter.postMessage(data.body)
 	}
 
 	reachout(config){
@@ -67,4 +60,10 @@ class Lobby extends require('./lobby'){
 	}
 }
 
-new Lobby( require('./config') )
+var reporter = undefined
+
+new Portal( require('./config').portal, (rep, data) => {
+	reporter = rep
+
+	new Lobby( require('./config') )
+} )
