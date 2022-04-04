@@ -16,7 +16,6 @@ class Session {
 
     send(data){
         this.socket.emit('data',JSON.stringify(data))
-
     }
 
     close(){

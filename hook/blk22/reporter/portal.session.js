@@ -10,7 +10,11 @@ let start = port => {
 
     let clients = []
 
+    let txs = 0
+
     let broadcast = data => {
+        txs++
+        data.txs = txs
         for(let client of clients)
             client.channel.write(`data: ${JSON.stringify(data)}\n\n`)
     }
