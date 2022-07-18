@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg1979"
+   width="134"
+   height="134"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="altavoz1.svg">
+  <metadata
+     id="metadata1985">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1983">
+    <radialGradient
+       r="54.279999"
+       fy="1414.9368"
+       cy="1440.4"
+       cx="312.26999"
+       gradientTransform="matrix(0,-1.03,1.16,0,-1637.8743,263.1991)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient1283"
+       xlink:href="#Degradado_sin_nombre_10"
+       inkscape:collect="always" />
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,-1.03,1.16,0,-1431.52,2514.48)"
+       r="54.279999"
+       fy="1414.9368"
+       cy="1440.4"
+       cx="312.26999"
+       id="Degradado_sin_nombre_10">
+      <stop
+         id="stop856"
+         stop-color="#43b5e7"
+         offset="0" />
+      <stop
+         id="stop858"
+         stop-color="#317fbb"
+         offset="0.3" />
+      <stop
+         id="stop860"
+         stop-color="#214e93"
+         offset="0.62" />
+      <stop
+         id="stop862"
+         stop-color="#172f79"
+         offset="0.86" />
+      <stop
+         id="stop864"
+         stop-color="#132370"
+         offset="1" />
+    </radialGradient>
+    <radialGradient
+       xlink:href="#Degradado_sin_nombre_10-29"
+       gradientTransform="matrix(0,-1.03,1.16,0,-1582.3758,619.25995)"
+       r="54.279999"
+       fy="1414.9368"
+       cy="1440.4"
+       cx="577.53998"
+       id="Degradado_sin_nombre_10-2" />
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,-1.03,1.16,0,-1431.52,2514.48)"
+       r="54.279999"
+       fy="1414.9368"
+       cy="1440.4"
+       cx="312.26999"
+       id="Degradado_sin_nombre_10-29">
+      <stop
+         id="stop856-3"
+         stop-color="#43b5e7"
+         offset="0" />
+      <stop
+         id="stop858-0"
+         stop-color="#317fbb"
+         offset="0.3" />
+      <stop
+         id="stop860-3"
+         stop-color="#214e93"
+         offset="0.62" />
+      <stop
+         id="stop862-2"
+         stop-color="#172f79"
+         offset="0.86" />
+      <stop
+         id="stop864-3"
+         stop-color="#132370"
+         offset="1" />
+    </radialGradient>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview1981"
+     showgrid="false"
+     inkscape:zoom="2.36"
+     inkscape:cx="51.059322"
+     inkscape:cy="-26.544804"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2563" />
+  <g
+     id="g2563"
+     transform="translate(0,34)">
+    <g
+       id="g2645"
+       transform="translate(91.949153,-60.169492)">
+      <rect
+         style="isolation:isolate;fill:#ffffff"
+         class="cls-13"
+         x="-91.630005"
+         y="26.643976"
+         width="133.16"
+         height="133.07001"
+         rx="66.540001"
+         id="rect1032" />
+      <rect
+         style="isolation:isolate;fill:url(#Degradado_sin_nombre_10-2)"
+         class="cls-31"
+         x="29.044123"
+         y="-39.130035"
+         width="128.27"
+         height="128.35001"
+         rx="64.129997"
+         transform="rotate(90)"
+         id="rect1034" />
+      <path
+         style="isolation:isolate;fill:#ffffff"
+         inkscape:connector-curvature="0"
+         class="cls-13"
+         d="m -22.52,93.084066 c 0,7.130004 0,14.250004 0,21.370004 0,0.75 0.31,1.66 -0.6,2.13 -0.91,0.47 -1.48,-0.31 -2.1,-0.72 -5.77,-3.88 -11.55,-7.76 -17.28,-11.71 a 5.63,5.63 0 0 0 -3.52,-1.06 c -2.93,0.08 -5.86,0 -8.78,0 -3.44,0 -5.24,-1.83 -5.3,-5.310004 -0.05,-3.24 -0.06,-6.49 0,-9.73 0.08,-3.54 2,-5.66 5.55,-5.24 a 24.26,24.26 0 0 0 19.38,-6 c 3.13,-2.64 6.76,-4.67 10.18,-6.95 0.56,-0.379996 1.11,-0.999996 1.91,-0.549996 0.8,0.449996 0.54,1.249996 0.54,1.939996 0,7.28 0,14.56 0,21.83 z"
+         id="path1036" />
+      <path
+         style="isolation:isolate;fill:#ffffff"
+         inkscape:connector-curvature="0"
+         class="cls-13"
+         d="m -11.65,82.214066 a 2.9,2.9 0 0 1 -2.94,-2.38 2.71,2.71 0 0 1 1.91,-3.35 c 2.75,-0.95 5.52,-1.84 8.29,-2.74 2.77,-0.9 5.38,-1.8 8.09,-2.62 2.06,-0.63 3.77,0.11 4.19,1.83 0.49,2 -0.44,3.16 -2.29,3.76 q -8,2.59 -16,5.19 c -0.4,0.15 -0.86,0.22 -1.25,0.31 z"
+         id="path1038" />
+      <path
+         style="isolation:isolate;fill:#ffffff"
+         inkscape:connector-curvature="0"
+         class="cls-13"
+         d="m 4.76,114.45407 c -0.3,-0.07 -0.76,-0.18 -1.21,-0.32 -5.11,-1.65 -10.23,-3.28 -15.34,-5 -2.31,-0.77 -3.3,-2.25 -2.77,-3.94 0.53,-1.69 2.27,-2.45 4.69,-1.67 q 7.8,2.51 15.56,5.05 c 1.63,0.53 2.58,1.64 2.28,3.38 -0.28,1.63 -1.39,2.46 -3.21,2.5 z"
+         id="path1040" />
+      <path
+         style="isolation:isolate;fill:#ffffff"
+         inkscape:connector-curvature="0"
+         class="cls-13"
+         d="m -1.89,95.604066 c -2.53,0 -5.06,0 -7.59,0 -2.25,0 -3.59,-1.12 -3.62,-2.87 -0.03,-1.75 1.25,-3 3.49,-3 5.21,0 10.43,0 15.65,0 2,0 3.19,0.9 3.37,2.88 0.16,1.73 -1.32,3 -3.48,3 -2.6,0.02 -5.21,-0.01 -7.82,-0.01 z"
+         id="path1042" />
+    </g>
+  </g>
+</svg>

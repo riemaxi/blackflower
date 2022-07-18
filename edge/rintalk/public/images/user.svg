@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="65" viewBox="0 0 65 65">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#dc3acf"/>
+      <stop offset="1" stop-color="#612060"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_3" data-name="Grupo 3" transform="translate(-15 -15)">
+    <path id="Trazado_3" data-name="Trazado 3" d="M32.5,0A32.5,32.5,0,1,1,0,32.5,32.5,32.5,0,0,1,32.5,0Z" transform="translate(15 15)" fill="#fff"/>
+    <g id="Grupo_2" data-name="Grupo 2">
+      <path id="Trazado_1" data-name="Trazado 1" d="M20.278,0S30.84,6.316,35.909,13.6A27.569,27.569,0,0,1,40.557,29.15H0A30.746,30.746,0,0,1,5.154,13.6C10.224,6.316,20.278,0,20.278,0Z" transform="translate(26.217 36.425)" fill="url(#linear-gradient)"/>
+      <circle id="Elipse_2" data-name="Elipse 2" cx="12" cy="12" r="12" transform="translate(35 24)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

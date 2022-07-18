@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg68629"
+   width="86"
+   height="86"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="camera.svg">
+  <metadata
+     id="metadata68635">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs68633" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview68631"
+     showgrid="false"
+     inkscape:zoom="4.0676471"
+     inkscape:cx="-3.5653979"
+     inkscape:cy="27.717301"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg68629" />
+  <g
+     id="g68616"
+     transform="translate(-126.68085,-1558.0722)">
+    <rect
+       style="fill:#132370"
+       class="cls-16"
+       x="127.88"
+       y="1558.63"
+       width="84.669998"
+       height="84.730003"
+       rx="42.34"
+       transform="rotate(90,170.215,1600.995)"
+       id="rect67413" />
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       class="cls-1"
+       d="m 170.07,1618.15 h -18 c -4.28,0 -6.88,-2.61 -6.88,-6.88 v -18.83 c 0,-4.09 2.61,-6.75 6.69,-6.8 1.35,0 2.69,0 4,0 a 2.65,2.65 0 0 0 2.54,-1.54 11.51,11.51 0 0 1 1.31,-2.16 5.91,5.91 0 0 1 4.68,-2.2 c 3.79,0 7.59,0 11.39,0 a 6.05,6.05 0 0 1 5.35,3.25 c 0.2,0.35 0.37,0.73 0.55,1.09 a 2.53,2.53 0 0 0 2.44,1.54 c 1.61,0 3.22,0 4.82,0 a 6.23,6.23 0 0 1 6,6.25 c 0,6.54 0,13.08 0,19.62 a 6.3,6.3 0 0 1 -6.53,6.6 c -6.09,0.08 -12.23,0.06 -18.36,0.06 z m 9.7,-17.14 a 9.66,9.66 0 1 0 -9.9,9.55 9.65,9.65 0 0 0 9.9,-9.56 z"
+       id="path67415" />
+  </g>
+</svg>
