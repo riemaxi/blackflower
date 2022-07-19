@@ -1,0 +1,49 @@
+{
+    "messages": [
+        {
+            "userID": "1",
+            "data": [
+                {
+                    "from": "1",
+                    "messages": [
+                        {
+                            "time": "1",
+                            "message": "",
+                            "sended": false
+                        },
+                        {
+                            "time": "2",
+                            "message": "",
+                            "sended": false
+                        }
+                    ]
+                },
+                {
+                    "from": "2",
+                    "messages": [
+                        {
+                            "time": "1",
+                            "message": "",
+                            "sended": false
+                        }
+                    ]
+                },
+                {
+                    "from": "3",
+                    "messages": [
+                        {
+                            "time": "1",
+                            "message": "",
+                            "sended": false
+                        },
+                        {
+                            "time": "2",
+                            "message": "",
+                            "sended": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
