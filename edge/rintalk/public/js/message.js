@@ -68,7 +68,7 @@ export class IMessage {
                 detail: detail
             })
 
-            if (this.saveMessage(detail, true)) {
+            if (this.saveMessage(detail, ctx, true)) {
                 this.renderMessage(detail, true);
                 this.scrollBottom();
             }
@@ -78,6 +78,7 @@ export class IMessage {
     }
 
     renderMessage(msg, yo) {
+        console.log(msg);
         let html = '';
         let fecha = new Date(msg.time);
         let hora = fecha.getHours() + ':' + this.padZero(fecha.getMinutes());
@@ -91,7 +92,8 @@ export class IMessage {
             html += '    </div>';
             html += '    <div class="chat-time">' + hora + '</div>';
             html += '</li>';
-
+            document.getElementById('msj-'+msg.to).textContent = 0;
+            document.getElementById('msj-'+msg.to).style.visibility = 'hidden';
         } else {
 
             html += '<li class="fadeIn">';
@@ -100,7 +102,8 @@ export class IMessage {
             html += '    </div>';
             html += '    <div class="chat-time">' + hora + '</div>';
             html += '</li>';
-
+            document.getElementById('msj-'+msg.from).textContent = 0;
+            document.getElementById('msj-'+msg.from).style.visibility = 'hidden';            
         }
 
         let liObj = document.createElement("li")
@@ -129,13 +132,19 @@ export class IMessage {
         }
     }
 
-    saveMessage(msg, yo) {
+    saveMessage(msg, ctx, yo) {
         let test
         let index = yo ? msg.to : msg.from
+
+        let notifyMessage = () => {
+            let num = parseInt(document.getElementById('msj-'+index).textContent)+1;
+            document.getElementById('msj-'+index).textContent = num;           
+        }
 
         if (this.messageContainer[index] === undefined) {
             this.messageContainer[index] = []
             this.messageContainer[index].push(msg)
+            notifyMessage()
             return true;
         } else {
             if (msg.time == this.messageContainer[index][this.messageContainer[index].length - 1].time &&
@@ -143,7 +152,7 @@ export class IMessage {
                 return false
             } else {
                 this.messageContainer[index].push(msg)
-
+                notifyMessage()
                 // test: 
                 test = this.messageContainer[index]
                 console.log('saveMessage messageContainer: ', test); // or undefined

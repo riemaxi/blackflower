@@ -88,8 +88,6 @@ export class AbstractApp extends Session {
             //------------PEER SERVER------------- CONFIG HERE -----------------
             this.peerServer()
         }
-
-
     }
 
     // error login
@@ -132,10 +130,16 @@ export class AbstractApp extends Session {
                     })
 
                     // save message
-                    if (this.screens.message.saveMessage(data.body.detail, false)) {
+                    if (this.screens.message.saveMessage(data.body.detail, this, false)) {
+                        console.log(data.body.detail.from);
                         // render message
-                        this.screens.message.renderMessage(data.body.detail, false);
-                        this.screens.message.scrollBottom();
+                        if (this.current==this.screens.message){
+                            this.screens.message.renderMessage(data.body.detail, false);
+                            this.screens.message.scrollBottom();
+                            document.getElementById('msj-'+data.body.detail.from).style.visibility = 'hidden';                            
+                        } else {
+                            document.getElementById('msj-'+data.body.detail.from).style.visibility = '';
+                        }
                     }
 
                     break;

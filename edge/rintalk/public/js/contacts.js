@@ -87,7 +87,7 @@ export class IContacts {
                                         
                                             <div class="div-chat">                
                                             <a><img src="images/chat.svg" alt="" class="video" id="${config.contacts[i].personalKey}"></a> 
-                                            <span class="number-msj" id="msj-${config.contacts[i].personalKey}">0</span>
+                                            <span class="number-msj" id="msj-${config.contacts[i].personalKey}" style="visibility: hidden;">0</span>
                                             </div>
                                             
                                             <div class="div-call">              
