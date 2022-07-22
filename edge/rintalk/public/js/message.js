@@ -20,6 +20,11 @@ export class IMessage {
         switch (e.type) {
             case 'click':
                 switch (e.target.id) {
+                    case 'img-back-msj':
+                        console.log(e.target.id);
+                        //test - remove
+                        ctx.goContactsScreen()
+                        break;
                     case 'camera-message-btn':
                         console.log(e.target.id);
                         break;
@@ -35,8 +40,6 @@ export class IMessage {
                         break;
                     case 'addfile-message-btn':
                         console.log(e.target.id);
-                        //test - remove
-                        ctx.goContactsScreen()
                         break;
 
                     default:

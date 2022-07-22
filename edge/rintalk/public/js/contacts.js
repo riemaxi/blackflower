@@ -60,11 +60,11 @@ export class IContacts {
 
             config.contacts.sort(this.SortArray)
             let contactsList = document.getElementById('contacts-list');
-            contactsList.innerHTML = '';
+            let HTML = ''
 
             for (let i = 0; i < config.contacts.length; i++) {
                 if (i == 0) {
-                    contactsList.innerHTML += `
+                    HTML += `
                                                 <div class="empty"></div>
                                                 <div class="leters-container">
                                                     <h2 class="leter">${config.contacts[i].personalName[0].toUpperCase()}</h2>
@@ -73,25 +73,35 @@ export class IContacts {
                 }
                 if (i > 0 && i < config.contacts.length &&
                     config.contacts[i - 1].personalName[0].toUpperCase() != config.contacts[i].personalName[0].toUpperCase()) {
-                    contactsList.innerHTML += `
+                    HTML += `
                                                 <div class="leters-container">
                                                     <h2 class="leter">${config.contacts[i].personalName[0].toUpperCase()}</h2>
                                                 </div>
                                             `
                 }
-                contactsList.innerHTML += `
-                                            <div class="contacts">
-                                                <div class="circle-green"></div>
-                                                <img  id="${config.contacts[i].personalKey}" src="${config.contacts[i].avatar}" alt="" class="avatar"/>
-                                                <p  id="${config.contacts[i].personalKey}" class="name">${config.contacts[i].personalName}</p>
-                                                <a><img src="images/chat.svg" alt="" class="video" id="${config.contacts[i].personalKey}"></a> 
-                                                <a><img src="images/call.svg" alt="" class="call" id="${config.contacts[i].personalKey}"></a>
+                    HTML += `
+                                        <div class="contacts">
+                                            <div class="circle-green"></div>
+                                            <img  id="${config.contacts[i].personalKey}" src="${config.contacts[i].avatar}" alt="" class="avatar"/>
+                                            <p  id="${config.contacts[i].personalKey}" class="name">${config.contacts[i].personalName}</p>
+                                        
+                                            <div class="div-chat">                
+                                            <a><img src="images/chat.svg" alt="" class="video" id="${config.contacts[i].personalKey}"></a> 
+                                            <span class="number-msj" id="msj-${config.contacts[i].personalKey}">0</span>
                                             </div>
+                                            
+                                            <div class="div-call">              
+                                            <a><img src="images/call.svg" alt="" class="call" id="${config.contacts[i].personalKey}"></a>
+                                            <span class="number-call" id="call-${config.contacts[i].personalKey}">0</span>
+                                            </div>
+
+                                        </div>
                                         `
             }
-            contactsList.innerHTML += `
+            HTML += `
                                         <div class="empty2"></div>
                                     `
+            contactsList.innerHTML = HTML;
         } else {
             config.contacts = [];
         }

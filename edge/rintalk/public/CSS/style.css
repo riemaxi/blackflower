@@ -1,23 +1,23 @@
 :root {
 
-    --backgroung  : linear-gradient(to bottom, #43b5e7ff, #131970ff);
+    --background  : linear-gradient(to bottom, #43b5e7ff, #131970ff);
     --bg-menu-up  : linear-gradient(to bottom, #4372ccff, #132370ff);
     --bg-menu-down: #030e35ff;
     --letter-white: white;
     --letter-black: black;
     --hamburguer  : #ccdff0ff;
+   
 }
-
-.dark {
-    --backgroung  : linear-gradient(to bottom, rgb(36, 44, 156), #030e35ff);
+.dark-theme{
+    --background  : linear-gradient(to bottom, rgb(36, 44, 156), #030e35ff);
     --bg-menu-up  : #030e35ff;
     --bg-menu-down: black;
     --letter-black: white;
     --hamburguer  : black
 }
 
-.light {
-    --backgroung: linear-gradient(to bottom, #ccdff0ff, #1b6eb3ff);
+.light-theme{
+ --background: linear-gradient(to bottom, #ccdff0ff, #1b6eb3ff);
     --bg-menu-up: #ccdff0ff;
     ;
     --bg-menu-down: #1b6eb3ff;
@@ -69,6 +69,11 @@ body {
     background           : var(--bg-menu-down);
     height               : 50px;
 }
+.header-down-title{
+    background           : var(--bg-menu-down);
+
+    width: 100%;
+}
 
 .hours,
 .money {
@@ -81,7 +86,7 @@ body {
 .coins-container {
     justify-content: right;
     display        : flex;
-    margin         : auto 10%;
+    margin         : auto 13%;
 }
 
 .img-coins {
@@ -120,7 +125,7 @@ body {
     display      : none;
     line-height  : 26px;
     transition   : all 0.8s;
-    width        : 92%;
+    width        : 94%;
     border-bottom: 1px solid black;
     margin-left  : 10px;
 
@@ -164,13 +169,16 @@ body {
 .triangule {
     position  : absolute;
     height    : 10px;
-    left      : 92%;
-    margin-top: 10px;
+    left      : 91%;
+    margin-top: 12px;
 }
 
 .line {
     border-bottom   : 1px solid black;
     background-color: black;
+}
+#h-m-logout{
+    border:none;
 }
 
 .img-small {
@@ -199,7 +207,7 @@ body {
     border                    : none;
     border-top-right-radius   : 5px;
     border-bottom-right-radius: 5px;
-    width                     : 36%;
+    width                     : 43%;
     outline                   : none;
 }
 
@@ -223,7 +231,7 @@ body {
 
 /*----------------------------------------LOGIN STYLES-----------------------------------------*/
 .container-login {
-    background: var(--backgroung);
+    background: var(--background);
     margin    : auto;
     padding   : 0;
     box-shadow: 0 5px 10px 5px rgb(0 0 0 /30%);
@@ -282,7 +290,7 @@ body {
     height       : 35px;
     margin       : auto 0;
     box-shadow   : 0px 0px 5px 1px black;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 
 .form-group-check {
@@ -402,13 +410,16 @@ body {
     flex-grow : 1;
     width     : 100%;
     min-height: 100vh;
-    background: linear-gradient(to bottom, rgb(61, 61, 245), rgb(15, 115, 197), rgb(10, 25, 161));
+    background: var(--background);
 
     grid-template-areas:
         "header"
         "center"
         "footer";
 
+}
+.contact-opacity{
+    opacity: 30%;
 }
 
 /*----------HEADER-----------*/
@@ -419,7 +430,7 @@ body {
     display            : grid;
     margin             : 0 auto;
     grid-template-areas: "header-up     header-up     "
-        "header-down   header-down    ";
+                         "header-down   header-down    ";
     grid-template-columns: auto auto;
     width                : 100%;
     z-index              : 10;
@@ -452,16 +463,16 @@ body {
     grid-area            : leters-container;
     display              : grid;
     grid-template-columns: 100%;
-    background           : var(--backgroung);
+    background           : var(--background);
 }
 
 .leter {
-    border-radius: 50px;
+    border-radius: 50%;
     border       : 2px solid white;
     color        : white;
-    width        : 40px;
-    height       : 40px;
-    margin       : 3px 0 5px 5.4%;
+    width        : 35px;
+    height       : 35px;
+    margin       : 3px 0 5px 6.2%;
     text-align   : center;
 }
 
@@ -469,6 +480,7 @@ body {
     grid-area            : contacts;
     display              : grid;
     grid-template-columns: 5% 15% 50% 15% 15%;
+   
     background-color     : white;
     border-radius        : 7px;
     margin-top           : 1px;
@@ -477,7 +489,7 @@ body {
 .circle-green {
     width        : 10px;
     height       : 10px;
-    border-radius: 20px;
+    border-radius: 50%;
     background   : #39b34aff;
     margin       : auto;
 }
@@ -485,7 +497,7 @@ body {
 .circle-red {
     width        : 10px;
     height       : 10px;
-    border-radius: 20px;
+    border-radius: 50%;
     background   : red;
     margin       : auto;
 }
@@ -499,7 +511,8 @@ body {
 .avatar {
     height       : 45px;
     margin       : auto 8px auto 2px;
-    border-radius: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(11, 11, 118);
 }
 
 #name {
@@ -515,14 +528,36 @@ body {
     height: 35px;
     margin: 10px auto 0 auto;
     cursor: pointer;
+    
 }
+.number-msj,.number-call{
+     
+    background: #ff7819ff;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    font-size: 8pt;
+   margin-left: 7px;
+   margin-top: 5px;
 
+}
 .call {
     height         : 35px;
     margin         : 10px auto 0 auto;
     cursor         : pointer;
     justify-content: center;
+    
 }
+.number-msj, .number-call{
+    
+}
+
+.div-chat , .div-call{
+    display: flex;
+   
+   
+}
+
 
 
 /*----------FOOTER-----------*/
@@ -543,7 +578,7 @@ body {
     grid-area            : footer-up;
     display              : grid;
     grid-template-columns: 100%;
-    background           : var(--backgroung);
+    background           : var(--background);
     display              : flex;
     justify-content      : center;
 }
@@ -596,7 +631,7 @@ ul {
 /*------------------------------------ABOUT US VIEW--------------------------------------*/
 .container-about {
 
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -627,13 +662,16 @@ ul {
 .title {
     display        : flex;
     justify-content: center;
-    margin         : 15px 0 5px;
+    margin-right: 5%;
+    
+}
 
-
+.divdown{
+ margin: 0;
 }
 
 .img {
-    height: 40px;
+    height: 30px;
     margin: auto 10px;
 }
 
@@ -645,7 +683,7 @@ ul {
 
 .h3 {
     color : white;
-    margin: auto 8px;
+    margin: auto ;
 }
 
 .text-content {
@@ -654,7 +692,7 @@ ul {
     padding      : 3px 20px;
     text-align   : justify;
     border-radius: 5px;
-    font-size    : 10pt;
+    font-size    : 12pt;
 }
 
 .text {
@@ -665,7 +703,7 @@ ul {
 /*------------------------------------LOGOUT VIEW--------------------------------------*/
 .container-logout {
 
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -701,7 +739,7 @@ ul {
 
 .img-transp {
     width : 70%;
-    margin: 40px 12.5% 0;
+    margin: 10px 12.5% 0;
 }
 
 .question {
@@ -738,7 +776,7 @@ ul {
 
 .text-content-small {
     background   : rgba(192, 241, 255, 0.359);
-    margin       : 10px 50px;
+    margin       : 50px 50px;
     padding      : 3px 20px 20px 30px;
     text-align   : justify;
     border-radius: 5px;
@@ -751,7 +789,7 @@ ul {
 
 /*---------------------------ADD CONTACT VIEW--------------------------------------------------*/
 .container-add-contact {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -788,7 +826,7 @@ ul {
     margin       : 0;
     width        : 100%;
     height       : 100%;
-    border-radius: 60px;
+    border-radius: 50%;
 }
 
 .add-container {
@@ -801,13 +839,12 @@ ul {
     overflow     : hidden;
     position     : relative;
     cursor       : pointer;
-    border-radius: 20px;
+    border-radius: 50%;
     display      : inline-block;
     margin       : 0 auto;
     width        : 80px;
     height       : 80px;
-    cursor       : pointer;
-    border-radius: 60px;
+    cursor       : pointer;   
     margin       : 3px 8px;
 
 }
@@ -832,6 +869,9 @@ ul {
     justify-content: center;
     padding-top    : 5px;
 }
+.empty6{
+    height: 150px;
+}
 
 
 .personal-container {
@@ -846,12 +886,13 @@ ul {
         "note             note";
     display              : grid;
     grid-template-columns: auto auto;
-    width                : 95;
+    width                : 95%;
     max-width            : 500px;
 }
 
 .personal-container input {
     font-size: 9pt;
+   
 }
 
 .img-contact {
@@ -860,7 +901,7 @@ ul {
 
 .title-personal {
     margin     : 5px auto 0 auto;
-    padding    : 5px;
+   
     grid-column: 1/3;
 }
 
@@ -879,6 +920,7 @@ ul {
     background   : none;
     width        : 60%;
     outline      : none;
+    padding-top: 15px;
 }
 
 .line-big {
@@ -887,6 +929,7 @@ ul {
     background   : none;
     width        : 80%;
     outline      : none;
+    padding-top: 15px;
 }
 
 .buttom {
@@ -928,7 +971,7 @@ ul {
 
 /*---------------------------ACTIVE CALL VIEW--------------------------------------------------*/
 .container-active-call {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -956,7 +999,7 @@ ul {
     padding      : 50px 0;
     width        : 100%;
     height       : 100%;
-    border-radius: 150px;
+    border-radius: 50%;
 }
 
 .icons {
@@ -974,7 +1017,7 @@ ul {
 
 .time {
     margin-top: 5px;
-    background: var(--backgroung);
+    background: var(--background);
 }
 
 .time-text {
@@ -997,7 +1040,7 @@ ul {
 
 /*---------------------------MY PROFILE VIEW--------------------------------------------------*/
 .container-profile {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1046,7 +1089,7 @@ ul {
     width        : 70px;
     height       : 70px;
     cursor       : pointer;
-    border-radius: 60px;
+    border-radius: 50%;
     margin       : 3px 8px;
 }
 
@@ -1082,7 +1125,7 @@ ul {
 
 .add-avatar-profile-prof {
     position: absolute;
-    top     : 300px;
+    top     : 335px;
     left    : 0.5%;
 }
 
@@ -1091,20 +1134,19 @@ ul {
     margin       : 0;
     width        : 90%;
     height       : 90%;
-    border-radius: 60px;
+    border-radius: 50%;
 }
 
 .preview-container-profile-pro {
     overflow     : hidden;
     position     : relative;
     cursor       : pointer;
-    border-radius: 20px;
+    border-radius: 50%;
     display      : inline-block;
     margin       : 0 auto;
     width        : 70px;
     height       : 70px;
     cursor       : pointer;
-    border-radius: 60px;
     margin       : 3px 8px;
 }
 
@@ -1154,7 +1196,7 @@ ul {
 
 /*------------------------------CALLING VIEW-----------------------------------------------*/
 .container-calling {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1181,7 +1223,7 @@ ul {
 .img-call {
     width        : 100%;
     text-align   : center;
-    border-radius: 60px;
+    border-radius: 50%;
 }
 
 .call-menu {
@@ -1192,11 +1234,11 @@ ul {
     height       : 230px;
     width        : 230px;
     margin-bottom: 10px;
-    border-radius: 150px;
+    border-radius: 50%;
 }
 
 .blue-footer {
-    background: var(--backgroung);
+    background: var(--background);
     height    : 15px;
 }
 
@@ -1221,7 +1263,7 @@ ul {
 
 /*------------------------------PERSONAL CONTACT INFO VIEW-----------------------------------------------*/
 .container-personal-info {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1290,7 +1332,7 @@ ul {
     height       : 150px;
     width        : 150px;
     margin       : 10px;
-    border-radius: 150px;
+    border-radius: 50%;
 }
 
 .btn-call {
@@ -1311,7 +1353,7 @@ ul {
 
 /*------------------------------PROFESIONAL CONTACT INFO VIEW-----------------------------------------------*/
 .container-profesional-info {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1344,7 +1386,7 @@ ul {
     height       : 150px;
     width        : 150px;
     margin       : 10px;
-    border-radius: 150px;
+    border-radius: 50%;
 }
 
 .title-and-ocupation {
@@ -1365,7 +1407,7 @@ ul {
 
 /*------------------------------RECEIVE VIEW-----------------------------------------------*/
 .container-receive-call {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1397,7 +1439,7 @@ ul {
 
 /*---------------------------VIDEOCALL ACTIVE CALL------------------------------------------*/
 .container-active-video {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1444,7 +1486,7 @@ ul {
     max-width    : 100%;
     max-height   : 100%;
     flex-grow    : 1;
-    border-radius: 45%;
+    border-radius: 50%;
 }
 
 /*img small*/
@@ -1476,7 +1518,7 @@ ul {
 
 /*---------------------------SETTINGS VIEW------------------------------------------*/
 .container-settings {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1663,7 +1705,7 @@ ul {
 
 /*---------------------------WRITE MSJ VIEW------------------------------------------*/
 .container-write-msj {
-    background: var(--backgroung);
+    background: var(--background);
     max-width : 500px;
     min-width : 280px;
     margin    : 0 auto;
@@ -1674,6 +1716,13 @@ ul {
     text-align: center;
     position  : relative;
 
+}
+.back-arrow{
+    margin: auto;
+}
+.img-arrow{
+    height: 25px;
+    
 }
 
 /*Hamburguer*/
@@ -1721,7 +1770,7 @@ ul {
     display      : none;
     line-height  : 26px;
     transition   : all 0.8s;
-    width        : 92%;
+    width        : 94%;
     border-bottom: 1px solid black;
     margin-left  : 10px;
 
@@ -1751,9 +1800,9 @@ ul {
 
 
 .header-small {
-    background           : var(--backgroung);
+    background           : var(--background);
     grid-area            : "avatar-msj  name-head   video-m   call-m   hamb ";
-    grid-template-columns: 17% 38% 15% 15% 15%;
+    grid-template-columns: 10% 13% 32% 15% 15% 15%;
     grid-row             : 1;
     display              : grid;
     padding              : 5px 0 5px 0;

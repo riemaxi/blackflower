@@ -38,6 +38,8 @@ export class ILogin {
             localStorage.setItem('key', this.getLogin().accessKey);
             localStorage.setItem('password', this.getLogin().password);
         }
+        sessionStorage.setItem('key', this.getLogin().accessKey);
+        sessionStorage.setItem('password', this.getLogin().password);
         config.accessKey = this.getLogin().accessKey
         ctx.loadingLoging(true);
         ctx.login(config.accessKey, this.getLogin().password)

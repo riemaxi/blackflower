@@ -30,7 +30,7 @@ export class AbstractApp extends Session {
         }
         this.current = this.screens.login
         this.containers = [
-            'container-login', 'container-contacts', 'container-add-contact',
+            'container-loader', 'container-login', 'container-contacts', 'container-add-contact',
             'container-about', 'container-logout', 'container-profile',
             'container-personal-info', 'container-write-msj',
             'container-calling', 'container-receive-call', 'container-active-video'
@@ -38,31 +38,57 @@ export class AbstractApp extends Session {
         //selected contact
         this.contact = undefined;
         this.setting = false;
+        this.logued = false;
+        this.loadingLoging(false);
+        sessionStorage.removeItem('key');
+        sessionStorage.removeItem('password');
     }
 
     initialize(data) {
-        document.getElementById('container-loader').style.display = 'none';
-        document.getElementById('container-login').style.display = '';
-        document.getElementById('enter').disabled = false;
         console.log('initialize... get initial data', data);
+        console.log('Logued: ', this.logued);
         config.accessKey = localStorage.getItem('key');
         config.password = localStorage.getItem('password');
-        if (config.accessKey != null && config.password != null) {
-            this.loadingLoging(true);
-            this.login(config.accessKey, config.password);
+        if (!this.logued) {
+            this.activeContainer('container-login');
+            this.loadingLoging(false);
+            document.getElementById('enter').disabled = false;
+            if (config.accessKey != null && config.password != null) {
+                this.loadingLoging(true);
+                this.login(config.accessKey, config.password);
+            }
+        } else {
+            const accessKey = sessionStorage.getItem('key');
+            const password = sessionStorage.getItem('password');
+            if (config.accessKey != null && config.password != null) {
+                this.loadingLoging(true);
+                this.login(config.accessKey, config.password);
+            } else if (accessKey != null && password != null) {
+                this.loadingLoging(true);
+                this.login(config.accessKey, config.password);
+            } else {
+                localStorage.removeItem('key');
+                localStorage.removeItem('password');
+                location.reload();
+            }
         }
+
     }
 
     onGranted(data) {
         console.log('onGranted ...', data);
-        // login success  
-        this.loadingLoging(false);
-        this.current = this.screens.contacts;
-        this.current.getContacts();
-        this.activeContainer('container-contacts')
-        this.screens.myprofile.getContactInfo();
-        //------------PEER SERVER------------- CONFIG HERE -----------------
-        this.peerServer()
+        // login success
+        if (!this.logued) {
+            this.logued = true;
+            this.loadingLoging(false);
+            this.current = this.screens.contacts;
+            this.current.getContacts();
+            this.activeContainer('container-contacts')
+            this.screens.myprofile.getContactInfo();
+            //------------PEER SERVER------------- CONFIG HERE -----------------
+            this.peerServer()
+        }
+
 
     }
 
@@ -73,7 +99,7 @@ export class AbstractApp extends Session {
         document.querySelector('#message').style.display = "block";
     }
 
-    loadingLoging(e){
+    loadingLoging(e) {
         if (e) {
             document.getElementById('enter').style.display = 'none';
             document.getElementById('new-password-btn').style.display = 'none';
@@ -82,7 +108,7 @@ export class AbstractApp extends Session {
             document.getElementById('enter').style.display = '';
             document.getElementById('new-password-btn').style.display = '';
             document.getElementById('loader-enter').style.display = 'none';
-        }        
+        }
     }
 
     onReply(data) {
@@ -236,27 +262,27 @@ export class AbstractApp extends Session {
             } else {
                 window.connection = connection;
 
-                window.connection.on('open', function() {
+                window.connection.on('open', function () {
                     // Receive messages
                     window.connection.on('data', (data) => {
                         console.log('Received: ', data.remoteVideo);
                         switch (data.remoteVideo) {
-                          case false:
-                            document.getElementById('img-videocall-recive').style.visibility= '';
-                            document.getElementById('remoteVideo').style.visibility= 'hidden';
-                            break;
-                          case true:
-                            document.getElementById('remoteVideo').style.visibility= '';
-                            document.getElementById('img-videocall-recive').style.visibility= 'hidden';
-                            break;
-                          default:
-                            break;
-                        }     
-                      });
+                            case false:
+                                document.getElementById('img-videocall-recive').style.visibility = '';
+                                document.getElementById('remoteVideo').style.visibility = 'hidden';
+                                break;
+                            case true:
+                                document.getElementById('remoteVideo').style.visibility = '';
+                                document.getElementById('img-videocall-recive').style.visibility = 'hidden';
+                                break;
+                            default:
+                                break;
+                        }
+                    });
                 });
             }
-            
-    
+
+
         });
 
         peer.on('call', (call) => {
@@ -266,102 +292,102 @@ export class AbstractApp extends Session {
             } else {
 
                 window.call = call;
-            window.reciveMicro = true;
-            window.reciveVideo = false;
-            window.bussy = true;
-            this.screens.call.setEnableAudioIcon();
-            this.screens.call.setDisableVideoIcon();
+                window.reciveMicro = true;
+                window.reciveVideo = false;
+                window.bussy = true;
+                this.screens.call.setEnableAudioIcon();
+                this.screens.call.setDisableVideoIcon();
 
-            this.contact = config.contacts.find(c => c.personalKey == call.peer)            
-            if (this.contact != undefined){
-                document.getElementById('img-call-recive').src = this.contact.avatar;
-                document.getElementById('name-call-recive').textContent = this.contact.personalName + this.contact.personalSurname;
-            }else{
-                console.log('Remote peer: ', call.peer);
-                document.getElementById('name-call-recive').textContent = call.peer;
-                document.getElementById('img-call-recive').src = 'images/calling-men.svg';
+                this.contact = config.contacts.find(c => c.personalKey == call.peer)
+                if (this.contact != undefined) {
+                    document.getElementById('img-call-recive').src = this.contact.avatar;
+                    document.getElementById('name-call-recive').textContent = this.contact.personalName + this.contact.personalSurname;
+                } else {
+                    console.log('Remote peer: ', call.peer);
+                    document.getElementById('name-call-recive').textContent = call.peer;
+                    document.getElementById('img-call-recive').src = 'images/calling-men.svg';
 
-            }
+                }
 
-            document.getElementById('localVideo').style.visibility= '';
-            document.getElementById('my-avatar-videocall-recive').style.visibility= 'hidden';
+                document.getElementById('localVideo').style.visibility = '';
+                document.getElementById('my-avatar-videocall-recive').style.visibility = 'hidden';
 
-            this.activeContainer('container-receive-call');
-            
-            if (call.peer == config.accessKey) {
-                this.goContactsScreen();
-                alert("You can't call yourself.");
-            } else {
+                this.activeContainer('container-receive-call');
 
-                this.current = this.screens.call
-                this.current.playRingTone();
-
-                const reptTone = setTimeout(() => {
-                    this.screens.call.playRingTone();
-                }, 12000);
-
-                const autoClose = setTimeout(() => {
-                    document.getElementById('cancel-call-recive').click()
-                }, 24000);
-
-                document.getElementById('cancel-call-recive').addEventListener('click', e => {                    
-                    console.log("call denied"); // D
-                    clearTimeout(autoClose);
-                    clearTimeout(reptTone);
-                    this.screens.call.stopRingTone();
-                    this.screens.call.playEndTone();  
-                    window.connection.close();               
+                if (call.peer == config.accessKey) {
                     this.goContactsScreen();
-                })
+                    alert("You can't call yourself.");
+                } else {
 
-                document.getElementById('acept-call-recive').addEventListener('click', e => {
-                    clearTimeout(autoClose);
-                    clearTimeout(reptTone);
-                    this.screens.call.stopRingTone();
-                    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
-                        window.localStream = stream
-                        document.getElementById('localVideo').srcObject = window.localStream; // B
-                        window.localStream.getAudioTracks()[0].enabled = window.reciveMicro;
-                        window.localStream.getVideoTracks()[0].enabled = window.reciveVideo;
-                        
-                        if (!window.localStream.getVideoTracks()[0].enabled) {
-                            document.getElementById('my-avatar-videocall-recive').style.visibility= '';
-                            document.getElementById('localVideo').style.visibility= 'hidden';
-                        } else {
-                            document.getElementById('localVideo').style.visibility= '';
-                            document.getElementById('my-avatar-videocall-recive').style.visibility= 'hidden';
-                        }
-                        call.answer(window.localStream);                       
+                    this.current = this.screens.call
+                    this.current.playRingTone();
 
-                        this.initCall();
+                    const reptTone = setTimeout(() => {
+                        this.screens.call.playRingTone();
+                    }, 12000);
 
-                    }).catch(err => {
-                        alert('Error: ' + err)
-                        console.log("You got an error:" + err)
+                    const autoClose = setTimeout(() => {
+                        document.getElementById('cancel-call-recive').click()
+                    }, 24000);
+
+                    document.getElementById('cancel-call-recive').addEventListener('click', e => {
+                        console.log("call denied"); // D
+                        clearTimeout(autoClose);
+                        clearTimeout(reptTone);
+                        this.screens.call.stopRingTone();
+                        this.screens.call.playEndTone();
                         window.connection.close();
                         this.goContactsScreen();
+                    })
+
+                    document.getElementById('acept-call-recive').addEventListener('click', e => {
+                        clearTimeout(autoClose);
+                        clearTimeout(reptTone);
+                        this.screens.call.stopRingTone();
+                        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
+                            window.localStream = stream
+                            document.getElementById('localVideo').srcObject = window.localStream; // B
+                            window.localStream.getAudioTracks()[0].enabled = window.reciveMicro;
+                            window.localStream.getVideoTracks()[0].enabled = window.reciveVideo;
+
+                            if (!window.localStream.getVideoTracks()[0].enabled) {
+                                document.getElementById('my-avatar-videocall-recive').style.visibility = '';
+                                document.getElementById('localVideo').style.visibility = 'hidden';
+                            } else {
+                                document.getElementById('localVideo').style.visibility = '';
+                                document.getElementById('my-avatar-videocall-recive').style.visibility = 'hidden';
+                            }
+                            call.answer(window.localStream);
+
+                            this.initCall();
+
+                        }).catch(err => {
+                            alert('Error: ' + err)
+                            console.log("You got an error:" + err)
+                            window.connection.close();
+                            this.goContactsScreen();
+                        });
                     });
-                });
 
-                window.connection.on('close', () => {
-                    console.log("window.connection.on('close',...)");
-                    clearTimeout(autoClose);
-                    clearTimeout(reptTone);
-                    this.screens.call.stopRingTone();
-                    this.screens.call.playEndTone();
-                    this.goContactsScreen();
-                });
+                    window.connection.on('close', () => {
+                        console.log("window.connection.on('close',...)");
+                        clearTimeout(autoClose);
+                        clearTimeout(reptTone);
+                        this.screens.call.stopRingTone();
+                        this.screens.call.playEndTone();
+                        this.goContactsScreen();
+                    });
 
-                window.connection.on('error', () => {
-                    console.log("window.connection.on('error',...)");
-                    clearTimeout(autoClose);
-                    clearTimeout(reptTone);
-                    this.screens.call.stopRingTone();
-                    this.screens.call.playEndTone();
-                    this.goContactsScreen();
-                });
-            }
-                
+                    window.connection.on('error', () => {
+                        console.log("window.connection.on('error',...)");
+                        clearTimeout(autoClose);
+                        clearTimeout(reptTone);
+                        this.screens.call.stopRingTone();
+                        this.screens.call.playEndTone();
+                        this.goContactsScreen();
+                    });
+                }
+
             }
         });
 
@@ -369,15 +395,21 @@ export class AbstractApp extends Session {
             console.log(err.type);
             clearInterval(window.calltone);
             switch (err.type) {
-                case 'peer-unavailable':                    
-                    window.connection.close();
+                case 'peer-unavailable':
+                    if (window.connection != undefined) {
+                        window.connection.close();
+                    }
                     this.goContactsScreen();
                     alert('The User you try to call is unavailable!')
                     break;
 
                 default:
-                    window.connection.close();
-                    this.goContactsScreen();
+                    if (window.connection != undefined) {
+                        window.connection.close();
+                    }
+                    if (this.current == this.screens.call) {
+                        this.goContactsScreen();
+                    }
                     console.log(err.type);
                     break;
             }
@@ -388,8 +420,8 @@ export class AbstractApp extends Session {
 
     goCallingScreen(activeVideo) {
         if (this.contact != undefined) {
-            this.activeContainer('container-calling')
             this.current = this.screens.call
+            this.activeContainer('container-calling')
             document.getElementById('avatar-calling').src = this.contact.avatar
             document.getElementById('name-calling').textContent = this.contact.personalName
             document.getElementById('avatar-active-call').src = this.contact.avatar
@@ -397,45 +429,45 @@ export class AbstractApp extends Session {
             this.current.call(this.contact.personalKey, this, activeVideo);
         } else {
             console.log('Contact undefined!');
-        }        
+        }
     }
 
     initCall() {
-        this.current = this.screens.call        
-        
+        this.current = this.screens.call
+
         const autoClose = setTimeout(() => {
             document.getElementById('cancel-calling-btn').click()
         }, 28000);
 
         document.getElementById('cancel-calling-btn').addEventListener('click', e => {
-            clearContent();         
+            clearContent();
             window.call.close();
             window.connection.close();
             this.screens.call.playEndTone();
             this.goContactsScreen();
-        })  
+        })
 
         window.call.on('stream', (streamR) => {
             window.connection.send({
-                remoteVideo: window.reciveVideo                        
+                remoteVideo: window.reciveVideo
             });
-            
+
             window.bussy = true;
 
-            clearContent();          
+            clearContent();
             console.log("call.on('stream',...)");
             window.remoteStream = streamR
-            
+
             document.getElementById('remoteVideo').srcObject = window.remoteStream;
 
-            if (this.contact != undefined){
+            if (this.contact != undefined) {
                 document.getElementById('img-videocall-recive').src = this.contact.avatar;
             } else {
                 document.getElementById('img-videocall-recive').src = 'images/img-videocall.svg';
             }
-            if (config.profile != null){
+            if (config.profile != null) {
                 console.log('');
-                if (config.profile.personalAvatar != null) {                    
+                if (config.profile.personalAvatar != null) {
                     document.getElementById('my-avatar-videocall-recive').src = config.profile.personalAvatar;
                 }
             }
@@ -481,18 +513,18 @@ export class AbstractApp extends Session {
     }
 
     toggleSettingMenu() {
-        console.log('setting in: ', this.setting );
+        console.log('setting in: ', this.setting);
         this.setting = !this.setting;
         document.querySelectorAll('.setting-hamburguer').forEach(c => {
-            console.log('setting out: ', this.setting );
+            console.log('setting out: ', this.setting);
             if (this.setting) {
                 c.style.display = "";
-              } else {
+            } else {
                 c.style.display = "none";
-              }
+            }
         })
-        
-      } 
+
+    }
 
 
     goContactsScreen() {
