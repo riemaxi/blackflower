@@ -92,7 +92,7 @@ export class IContacts {
                                             
                                             <div class="div-call">              
                                             <a><img src="images/call.svg" alt="" class="call" id="${config.contacts[i].personalKey}"></a>
-                                            <span class="number-call" id="call-${config.contacts[i].personalKey}">0</span>
+                                            <span class="number-call" id="call-${config.contacts[i].personalKey}" style="visibility: hidden;">0</span>
                                             </div>
 
                                         </div>

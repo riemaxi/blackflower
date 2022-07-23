@@ -257,7 +257,7 @@ export class AbstractApp extends Session {
     }
 
     peerServer() {
-        const peer = new Peer(config.accessKey);
+        const peer = new Peer(config.accessKey, config.peerjs);
 
         peer.on('connection', (connection) => {
 

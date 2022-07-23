@@ -6,7 +6,7 @@ export class Session {
     }
 
     connect(host) {
-        this.socket = io.connect(host, { reconnect: true })
+        this.socket = io.connect(host, { reconnect: true,  transports: ['websocket'] })
 
         this.socket.on('connect', () => {
             this.onConnect()
