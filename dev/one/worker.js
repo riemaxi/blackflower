@@ -6,10 +6,12 @@ class DB extends require('./manager').DB{
 	}
 
 	initialize(data){
+		super.initialize(data)
+
 		parentPort.postMessage({type: 'initialized', data: workerData.id} )
 		parentPort.on('message', msg => {
 			switch(msg.type){
-				case 'add' : this.add(msg.key, msg.data, msg.token); break;
+				case 'add' : this.insert(msg.key, msg.data, msg.token); break;
 				case 'remove' : this.remove(msg.key, msg.token); break;
 				case 'get' : this.get(msg.key, msg.token); break;
 				case 'list' : this.select(msg.token); break;
@@ -22,7 +24,7 @@ class DB extends require('./manager').DB{
 		parentPort.postMessage({type, data})
 	}
 
-	add(key, data, token){
+	insert(key, data, token){
 		super.add(key, data)
 		this.reply('add', {key, data, token})
 	}
@@ -32,14 +34,14 @@ class DB extends require('./manager').DB{
 		this.reply('add', {key, token})
 	}
 
-	get(key){
+	get(key, token){
 		let data  = super.get(key)
 		this.reply('get', {data, token})
 	}
 
 	select(token){
 		let data = super.list( _ => true)
-		this.reply('list', {data:'', token})
+		this.reply('list', {path: workerData.path, data, token})
 	}
 
 	save(token){

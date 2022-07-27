@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "crypto": "^1.0.1",
+    "socket.io-client": "^4.5.1",
+    "uuid": "^8.3.2",
     "worker-threads": "^1.0.0"
   }
 }

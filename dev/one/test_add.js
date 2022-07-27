@@ -12,7 +12,7 @@ class DB extends require('./manager').DB{
 
 		let size = 0
 		let interval = setInterval(() => {
-			let id = Date.now()
+			let id = Date.now() + 10000
 			this.add(id, {name: 'name-' + id, description: 'description-' + id})
 			console.log(id)
 

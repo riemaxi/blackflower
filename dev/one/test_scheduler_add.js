@@ -1,48 +1,27 @@
-const configs = [
-	{
-		id : 'data-00',
-		path: '/mnt/d/blackflower/storage/messaging/data-00',
-		range :	{start:0, end: 9}
-	},
-
-	{
-		id : 'data-10',
-		path: '/mnt/d/blackflower/storage/messaging/data-10',
-		range :	{start:10, end: 19}
-	},
-
-	{
-		id : 'data-20',
-		path: '/mnt/d/blackflower/storage/messaging/data-20',
-		range :	{start:20, end: 29}
-	},
-
-	{
-		id : 'data-30',
-		path: '/mnt/d/blackflower/storage/messaging/data-30',
-		range :	{start:30, end: 39}
-	},
-
-	{
-		id : 'data-40',
-		path: '/mnt/d/blackflower/storage/messaging/data-40',
-		range :	{start:40, end: 49}
-	}
-]
+const configs = require('./test_config')
+const crypto = require('crypto')
 
 class Scheduler extends require('./manager').Scheduler{
 	constructor(){
-		super('./worker.js',configs)
+		super('./worker.js',configs.scheduler_add)
 	}
 
 	initialized(){
 		super.initialized()
+		this.counter = 0
 
 		console.log('Test-Scheduler::initialized')
 
-		for(let i=0; i<50; i++){
-			let key = Math.floor(Math.random()*50)
-			this.add(key, { value: key}, Date.now() + 1000)
+		for(let i=0; i<1000000; i++){
+			let id = Math.floor(Math.random()*100000)
+			let record = { value: id, name: 'name-' + id}
+
+			let hash = crypto.createHash('sha256')
+
+			hash.update(JSON.stringify(record))
+			let key = hash.digest('hex')
+
+			this.add(key, record, Date.now() + 1000)
 		}
 
 		setTimeout(()=> this.save(Date.now() + 1000), 1000)
@@ -50,7 +29,7 @@ class Scheduler extends require('./manager').Scheduler{
 	}
 
 	message(msg){
-		console.log('Test-Scheduler::message', msg.type)
+		console.log('Test-Scheduler::message', msg.type, this.counter++)
 		super.message(msg)
 	}
 }

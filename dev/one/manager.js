@@ -39,9 +39,11 @@ class DB{
 	}
 
 	list(ok){
-		return Object
+		let result = Object
 			.entries(this.data).filter( item => ok({key: item[0], data : {...item[1]}}) )
 			.map(item => ({key: item[0], data : {...item[1]}}))
+
+		return result
 	}
 
 	stringify(){
@@ -88,7 +90,7 @@ class Scheduler{
 					let values = range.split(':')
 					return {start: values[0], end : values[1]}
 				})
-				.find( range => parseInt(range.start) <= key && key <= parseInt(range.end))
+				.find( range => range.start <= key && key <= range.end)
 
 			return range && this.ranges[range.start + ':' + range.end]
 	}
