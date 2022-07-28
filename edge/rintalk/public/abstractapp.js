@@ -39,6 +39,7 @@ export class AbstractApp extends Session {
         this.contact = undefined;
         this.setting = false;
         this.logued = false;
+        this.editContact = false;
         this.loadingLoging(false);
         sessionStorage.removeItem('key');
         sessionStorage.removeItem('password');
@@ -60,13 +61,12 @@ export class AbstractApp extends Session {
         } else {
             const accessKey = sessionStorage.getItem('key');
             const password = sessionStorage.getItem('password');
+            config.accessKey = accessKey;
+            config.password = password;
             if (config.accessKey != null && config.password != null) {
                 this.loadingLoging(true);
                 this.login(config.accessKey, config.password);
-            } else if (accessKey != null && password != null) {
-                this.loadingLoging(true);
-                this.login(config.accessKey, config.password);
-            } else {
+            }  else {
                 localStorage.removeItem('key');
                 localStorage.removeItem('password');
                 location.reload();
@@ -77,6 +77,11 @@ export class AbstractApp extends Session {
 
     onGranted(data) {
         console.log('onGranted ...', data);
+        // Send alert of conection to get saved messages not recived
+        this.reply(config.accessKey, config.peer, {
+            context: 'rintalk',
+            subject: 'pending'
+        })
         // login success
         if (!this.logued) {
             this.logued = true;
@@ -95,6 +100,13 @@ export class AbstractApp extends Session {
         console.log('onDenied', data);
         this.loadingLoging(false);
         document.querySelector('#message').style.display = "block";
+        if (this.logued) {
+            localStorage.removeItem('key');
+            localStorage.removeItem('password');
+            sessionStorage.removeItem('key');
+            sessionStorage.removeItem('password');
+            location.reload();
+        }
     }
 
     loadingLoging(e) {
@@ -120,6 +132,7 @@ export class AbstractApp extends Session {
 
                     // send recived
                     this.reply(config.accessKey, config.peer, {
+                        context: 'rintalk',
                         subject: 'message-recived',
                         detail: {
                             to: data.body.detail.to,

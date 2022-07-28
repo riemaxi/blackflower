@@ -21,12 +21,139 @@ export class IPersonalInfo {
                         console.log('go to action:', e.target.id);
                         ctx.goMessageScreen();
                         break;
+
+                    case 'pers-edit-btn':
+                        console.log('go to action:', e.target.id);
+                        document.getElementById('title-add-contact').innerHTML = 'EDIT CONTACT';
+                        ctx.editContact = true;
+                        ctx.current = ctx.screens.addContact;
+                        ctx.current.loadEditInfo(ctx);
+                        ctx.activeContainer('container-add-contact');
+                        break;
+                    case 'pers-remove-btn':
+                        console.log('go to action:', e.target.id);
+
+                        swal({
+                            title: "Are you sure?",
+                            text: "Once deleted, you will not be able to recover information!",
+                            buttons: true,
+                            dangerMode: true,
+                          })
+                          .then((willDelete) => {
+                            if (willDelete) {
+                                this.removeContact(ctx);
+                                swal("Your contact has been deleted!", {
+                                    icon: "success",
+                                });
+                                ctx.current = ctx.screens.contacts;
+                                ctx.current.getContacts()
+                                ctx.activeContainer('container-contacts')                                
+                            } else {
+                                swal("Your contact is safe!");
+                            }
+                          });
+                        break;
+                    case 'pers-copy-btn':
+                        console.log('go to action:', e.target.id);
+                        this.copyContactInfo(ctx);
+                        break;
+                    case 'pers-share-btn':
+                        console.log('go to action:', e.target.id);
+                        this.shareContactInfo(ctx);
+                        break;
+                        
+                        
                     default:
                         break;
+
+                    //    document.getElementById('title-add-contact').innerHTML = 'EDIT CONTACT';
+
                 }
             default:
                 break;
         }
+    }
+
+    shareContactInfo(ctx){
+        let cp = '<h3>Personal Information:</h3>'        
+
+        for (let index in ctx.contact){
+            if (ctx.contact[index] != '' && index != 'avatar') {
+                switch (index) {
+                    case 'personalName':
+                        cp += `Name: ${ctx.contact[index]}<br>`;
+                        break;
+                    case 'personalSurname':
+                        cp += `Surname: ${ctx.contact[index]}<br>`;
+                        break;
+                    case 'personalPhone':
+                        cp += `Phone: ${ctx.contact[index]}<br>`;
+                        break;
+                    case 'personalMobile':
+                        cp += `Mobile: ${ctx.contact[index]}<br>`;
+                        break;
+                    case 'personalKey':
+                        cp += `AccessKey: ${ctx.contact[index]}<br>`;
+                        break;
+                    case 'personalEmail':
+                        cp += `Email: ${ctx.contact[index]}<br>`;
+                        break;
+                   /*  case 'personalNote':
+                        cp += `Note: ${ctx.contact[index]}<br>`;
+                        break; */
+                        
+                    /* case 'profesionalName':
+                        
+                        break;
+                    case 'profesionalSurname':
+                        
+                        break;
+                    case 'profesionalProfesion':
+                        
+                        break;
+                    case 'profesionalCompany':
+                        
+                        break;
+                    case 'profesionalPhone':
+                        
+                        break;
+                    case 'profesionalMobile':
+                        
+                        break;
+                    case 'profesionalKey':
+                        
+                        break;
+                    case 'profesionalEmail':
+                        
+                        break;
+                    case 'profesionalNote':
+                        
+                        break;
+                 */
+                    default:
+                        break;
+                }                
+            }
+        }
+        navigator.clipboard.writeText(cp);
+    }
+
+    copyContactInfo(ctx){
+        let cp = ''
+
+        for (let index in ctx.contact){
+            if (ctx.contact[index] != '' && index != 'avatar') {
+                cp += `${index}: ${ctx.contact[index]}, `;
+            }
+        }
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(cp);
+    }
+
+    removeContact(ctx){
+        config.contacts = config.contacts.filter( contact => contact.personalKey != ctx.contact.personalKey );
+        console.log(config.contacts);
+        localStorage.setItem('contacts-' + config.accessKey, JSON.stringify({ contacts: config.contacts }));
     }
 
     loadPersonalInfo(id, ctx) {

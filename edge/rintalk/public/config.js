@@ -6,7 +6,7 @@ export const config = {
     profile: null,
     contacts: [],
     peer: '00000000-0CC01FF011',
-    //peer: '00000000-0CC01FF010',    
+    //peer: '00000000-0CC01FF017',    
     peerjs: {
         host: '207.244.254.63',
         port: 61100,

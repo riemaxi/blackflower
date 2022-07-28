@@ -22,7 +22,6 @@ export class IMessage {
                 switch (e.target.id) {
                     case 'img-back-msj':
                         console.log(e.target.id);
-                        //test - remove
                         ctx.goContactsScreen()
                         break;
                     case 'camera-message-btn':
@@ -40,6 +39,16 @@ export class IMessage {
                         break;
                     case 'addfile-message-btn':
                         console.log(e.target.id);
+                        break;
+
+                    // Video llamada
+                    case 'id-video-m':
+                        console.log(e.target.id);
+                        ctx.goCallingScreen(true);
+                        break;
+                    case 'id-call-m':
+                        console.log(e.target.id);
+                        ctx.goCallingScreen(false);
                         break;
 
                     default:
@@ -64,6 +73,7 @@ export class IMessage {
             }
 
             ctx.reply(config.accessKey, config.peer, {
+                context: 'rintalk',
                 subject: 'message',
                 detail: detail
             })

@@ -13,7 +13,12 @@ export class IContacts {
                     case 'add-contact':
                         console.log('go to action:', e.target.id);
                         ctx.current = ctx.screens.addContact;
+                        if (ctx.editContact) {
+                            ctx.current.clearScreen();
+                        }                        
                         document.getElementById('preview').src = 'images/add-avatar.svg';
+                        document.getElementById('title-add-contact').innerHTML = 'ADD CONTACT';
+                        ctx.editContact = false;
                         ctx.activeContainer('container-add-contact');
                         break;
                     default:

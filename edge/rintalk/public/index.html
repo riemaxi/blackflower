@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/loader.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/chat.css">
+    
     <link rel="icon" href="images/rintalk-ico.jpg">
 </head>
 
@@ -357,7 +358,7 @@
             <div class="header-down ">
                 <div class="search-container divdown">
                     <div class="title">
-                        <h3 class="h3">ADD CONTACT</h3>
+                        <h3 class="h3" id="title-add-contact">ADD CONTACT</h3>
                     </div>
                 </div>
                
@@ -367,123 +368,136 @@
         <div class="center">
             <div class="empty"></div>
 
-            <div class="add-avatar">
-                <div class="preview-container">
-                    <img class="img-add" src="images/add-avatar.svg" id="preview" alt="">
-                    <input type="file" id="archivo" name="imagen" accept="image/*" />
-                </div>
+            <div id="add-contact-croppie">
                 
-            </div>
-
-            <!-------Personal---------->
-            <div class="personal-container">
-                <h5 class="title-personal">Personal Information</h5>
-
-                <div class="names">
-                    <img class="img-contact" src="images/name.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Name" id="contact-pers-name" autocomplete="off">
-                </div>
-
-                <div class="surname">
-                    <img class="img-contact" src="images/name.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Surname" id="contact-pers-surname"
-                        autocomplete="off">
-                </div>
-
-                <div class="phone">
-                    <img class="img-contact" src="images/phone.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Phone" id="contact-pers-phone"
-                        autocomplete="off">
-                </div>
-
-                <div class="mobile">
-                    <img class="img-contact" src="images/mobile.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Mobile" id="contact-pers-mobile"
-                        autocomplete="off">
-                </div>
-
-                <div class="access-key">
-                    <img class="img-contact" src="images/access-key.svg" alt="">
-                    <input class="line-big" type="text" placeholder="Acces Key" id="contact-pers-key"
-                        autocomplete="off">
-                </div>
-
-                <div class="email">
-                    <img class="img-contact" src="images/email.svg" alt="">
-                    <input class="line-big" type="text" placeholder="E-mail" id="contact-pers-email" autocomplete="off">
-                </div>
-
-                <div class="note">
-                    <img class="img-contact" src="images/note.svg" alt="">
-                    <input class="line-big" type="text" placeholder="Note" id="contact-pers-note" autocomplete="off">
-                </div>
+                                   
 
             </div>
 
-            <br>
+            <div id="container-add-contact-center">
 
-            <!-------Profesional---------->
-            <div class="personal-container">
-                <h5 class="title-personal">Profesional Information</h5>
-
-                <div class="names">
-                    <img class="img-contact" src="images/name.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Name" id="contact-prof-name" autocomplete="off">
+                <div class="add-avatar">
+                    <div class="preview-container">
+                        <img class="img-add" src="images/add-avatar.svg" id="preview" alt="">
+                        <input type="file" id="archivo" name="imagen" accept="image/*" />
+                    </div>
+                    
+                </div>
+    
+                <!-------Personal---------->      
+                <div class="personal-container">
+                    <h5 class="title-personal">Personal Information</h5>
+    
+                    <div class="names">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Name" id="contact-pers-name" autocomplete="off">
+                    </div>
+    
+                    <div class="surname">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Surname" id="contact-pers-surname"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="phone">
+                        <img class="img-contact" src="images/phone.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Phone" id="contact-pers-phone"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="mobile">
+                        <img class="img-contact" src="images/mobile.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Mobile" id="contact-pers-mobile"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="access-key">
+                        <img class="img-contact" src="images/access-key.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Acces Key" id="contact-pers-key"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="email">
+                        <img class="img-contact" src="images/email.svg" alt="">
+                        <input class="line-big" type="text" placeholder="E-mail" id="contact-pers-email" autocomplete="off">
+                    </div>
+    
+                    <div class="note">
+                        <img class="img-contact" src="images/note.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Note" id="contact-pers-note" autocomplete="off">
+                    </div>
+    
+                </div>
+    
+                <br>
+    
+                <!-------Profesional---------->
+                <div class="personal-container">
+                    <h5 class="title-personal">Profesional Information</h5>
+    
+                    <div class="names">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Name" id="contact-prof-name" autocomplete="off">
+                    </div>
+    
+                    <div class="surname">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Surname" id="contact-prof-surname"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="profesion">
+                        <img class="img-contact" src="images/profesion.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Profesion" id="contact-prof-profesion"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="company">
+                        <img class="img-contact" src="images/company.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Company" id="contact-prof-company"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="phone">
+                        <img class="img-contact" src="images/phone.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Phone" id="contact-prof-phone"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="mobile">
+                        <img class="img-contact" src="images/mobile.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Mobile" id="contact-prof-mobile"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="access-key">
+                        <img class="img-contact" src="images/access-key.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Acces Key" id="contact-prof-key"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="email">
+                        <img class="img-contact" src="images/email.svg" alt="">
+                        <input class="line-big" type="text" placeholder="E-mail" id="contact-prof-email" autocomplete="off">
+                    </div>
+    
+                    <div class="note">
+                        <img class="img-contact" src="images/note.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Note" id="contact-prof-note" autocomplete="off">
+                    </div>
+                </div>
+    
+                <br>
+    
+                <div class="buttom">
+                    <button class="cancel-personal" id="cancel-add-contact-btn">Cancel</button>
+                    <button class="add-personal" id="add-contact-btn">Save</button>
                 </div>
 
-                <div class="surname">
-                    <img class="img-contact" src="images/name.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Surname" id="contact-prof-surname"
-                        autocomplete="off">
-                </div>
 
-                <div class="profesion">
-                    <img class="img-contact" src="images/profesion.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Profesion" id="contact-prof-profesion"
-                        autocomplete="off">
-                </div>
-
-                <div class="company">
-                    <img class="img-contact" src="images/company.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Company" id="contact-prof-company"
-                        autocomplete="off">
-                </div>
-
-                <div class="phone">
-                    <img class="img-contact" src="images/phone.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Phone" id="contact-prof-phone"
-                        autocomplete="off">
-                </div>
-
-                <div class="mobile">
-                    <img class="img-contact" src="images/mobile.svg" alt="">
-                    <input class="line-short" type="text" placeholder="Mobile" id="contact-prof-mobile"
-                        autocomplete="off">
-                </div>
-
-                <div class="access-key">
-                    <img class="img-contact" src="images/access-key.svg" alt="">
-                    <input class="line-big" type="text" placeholder="Acces Key" id="contact-prof-key"
-                        autocomplete="off">
-                </div>
-
-                <div class="email">
-                    <img class="img-contact" src="images/email.svg" alt="">
-                    <input class="line-big" type="text" placeholder="E-mail" id="contact-prof-email" autocomplete="off">
-                </div>
-
-                <div class="note">
-                    <img class="img-contact" src="images/note.svg" alt="">
-                    <input class="line-big" type="text" placeholder="Note" id="contact-prof-note" autocomplete="off">
-                </div>
             </div>
 
-            <br>
-
-            <div class="buttom">
-                <button class="cancel-personal" id="cancel-add-contact-btn">Cancel</button>
-                <button class="add-personal" id="add-contact-btn">Add</button>
-            </div>
+            
         </div>
 
     </div>
@@ -702,11 +716,11 @@
             </div>
 
             <div class="header-down">
-                <div class="search-container">
-                    <a class="link-search"> <img class="img-search" src="images/search.svg" alt=""></a>
-                    <input class="search" type="text" placeholder="Search contacts...">
-                </div>
-                <a class="add"> <img class="add-contact" src="images/add.svg" alt=""></a>
+                <div class="search-container divdown">
+                    <div class="title">
+                        <h3 class="h3">PERSONAL</h3>
+                    </div>
+                </div>                
             </div>
         </div>
 
@@ -788,11 +802,10 @@
                                 src="images/logout.svg" alt=""> Log Out</a></li>
                 </ul>
             </div>
-
+            
             <div class="header-down ">
                 <div class="search-container divdown">
-                    <div class="title">
-                       
+                    <div class="title">                       
                         <h3 class="h3">PROFESIONAL</h3>
                     </div>
                 </div>
@@ -1219,12 +1232,11 @@
         document.addEventListener("click", (e) => {
             app.onIEvent(e)
         })
-
     </script>
+
+    <script src="js/sweetalert.min.js"></script>
     <script src="js/avatar.js"></script>
     <script src="js/temas.js"></script>
-
-   
 
 </body>
 

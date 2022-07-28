@@ -17,6 +17,10 @@ export class IAddContact {
                         console.log('go to action:', e.target.id)
                         this.cancelAddContact(ctx)
                         break;
+                    case 'preview':
+                        console.log('go to action:', e.target.id)
+                       // this.cropImgAddContact(ctx)
+                        break;
                     default:
                         break;
                 }
@@ -25,8 +29,11 @@ export class IAddContact {
         }
     }
 
-    addContact(ctx) {
+    cropImgAddContact(ctx){
+        document.getElementById('')
+    }
 
+    addContact(ctx) {
         // Personal
         let avatar = document.getElementById('preview').src == window.location.origin + '/images/add-avatar.svg' ? 'images/user2.svg' : document.getElementById('preview').src
         let personalName = document.getElementById('contact-pers-name').value;
@@ -52,34 +59,27 @@ export class IAddContact {
             profesionalName, profesionalSurname, profesionalProfesion, profesionalCompany, profesionalPhone, profesionalMobile,
             profesionalKey, profesionalEmail, profesionalNote
         }
+
+        if (ctx.editContact) {
+            config.contacts = config.contacts.filter( contact => contact.personalKey != personalKey )
+        }
         config.contacts.push(contact)
         console.log(config.contacts);
         localStorage.setItem('contacts-' + config.accessKey, JSON.stringify({ contacts: config.contacts }));
 
-
+        ctx.current.clearScreen()
         ctx.current = ctx.screens.contacts;
         ctx.current.getContacts()
         ctx.activeContainer('container-contacts')
-
-        document.getElementById('preview').src = 'images/user2.svg'
-        document.getElementById('contact-pers-name').value = ''
-        document.getElementById('contact-pers-surname').value = ''
-        document.getElementById('contact-pers-phone').value = ''
-        document.getElementById('contact-pers-mobile').value = ''
-        document.getElementById('contact-pers-key').value = ''
-        document.getElementById('contact-pers-email').value = ''
-        document.getElementById('contact-prof-profesion').value = ''
-        document.getElementById('contact-prof-company').value = ''
-        document.getElementById('contact-prof-phone').value = ''
-        document.getElementById('contact-prof-mobile').value = ''
-        document.getElementById('contact-prof-email').value = ''
-        document.getElementById('contact-prof-note').value = ''
     }
 
     cancelAddContact(ctx) {
+        ctx.current.clearScreen()
         ctx.current = ctx.screens.contacts;
         ctx.activeContainer('container-contacts')
+    }
 
+    clearScreen(){
         document.getElementById('preview').src = 'images/add-avatar.svg'
         document.getElementById('contact-pers-name').value = ''
         document.getElementById('contact-pers-surname').value = ''
@@ -87,12 +87,38 @@ export class IAddContact {
         document.getElementById('contact-pers-mobile').value = ''
         document.getElementById('contact-pers-key').value = ''
         document.getElementById('contact-pers-email').value = ''
+        document.getElementById('contact-pers-note').value = ''
+
+        document.getElementById('contact-prof-name').value = ''
+        document.getElementById('contact-prof-surname').value = ''
         document.getElementById('contact-prof-profesion').value = ''
         document.getElementById('contact-prof-company').value = ''
         document.getElementById('contact-prof-phone').value = ''
         document.getElementById('contact-prof-mobile').value = ''
+        document.getElementById('contact-prof-key').value = ''
         document.getElementById('contact-prof-email').value = ''
         document.getElementById('contact-prof-note').value = ''
+    }
+
+    loadEditInfo(ctx){
+        document.getElementById('preview').src = ctx.contact.avatar
+        document.getElementById('contact-pers-name').value = ctx.contact.personalName
+        document.getElementById('contact-pers-surname').value = ctx.contact.personalSurname
+        document.getElementById('contact-pers-phone').value = ctx.contact.personalPhone
+        document.getElementById('contact-pers-mobile').value = ctx.contact.personalMobile
+        document.getElementById('contact-pers-key').value = ctx.contact.personalKey
+        document.getElementById('contact-pers-email').value = ctx.contact.personalEmail
+        document.getElementById('contact-pers-note').value = ctx.contact.personalNote
+
+        document.getElementById('contact-prof-name').value = ctx.contact.profesionalName
+        document.getElementById('contact-prof-surname').value = ctx.contact.profesionalSurname
+        document.getElementById('contact-prof-profesion').value = ctx.contact.personalNote
+        document.getElementById('contact-prof-company').value = ctx.contact.profesionalCompany
+        document.getElementById('contact-prof-phone').value = ctx.contact.profesionalPhone
+        document.getElementById('contact-prof-mobile').value = ctx.contact.profesionalMobile
+        document.getElementById('contact-prof-key').value = ctx.contact.profesionalKey
+        document.getElementById('contact-prof-email').value = ctx.contact.profesionalEmail
+        document.getElementById('contact-prof-note').value = ctx.contact.profesionalNote
     }
 
 }

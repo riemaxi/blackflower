@@ -510,9 +510,12 @@ body {
 
 .avatar {
     height       : 45px;
+    width       : 45px;
     margin       : auto 8px auto 2px;
     border-radius: 50%;
     border: 2px solid rgb(11, 11, 118);
+    object-fit:cover;
+    object-position: center;
 }
 
 #name {
@@ -820,15 +823,6 @@ ul {
     display: block;
 }
 
-/*AVATAR*/
-
-.preview-container>img {
-    margin       : 0;
-    width        : 100%;
-    height       : 100%;
-    border-radius: 50%;
-}
-
 .add-container {
     width     : 100%;
     text-align: center;
@@ -847,6 +841,18 @@ ul {
     cursor       : pointer;   
     margin       : 3px 8px;
 
+}
+
+/*AVATAR*/
+
+.preview-container>img {
+    margin       : 0;
+    width        : 100%;
+    height       : 100%;
+    border-radius: 50%;
+    border: 2px solid #050f6b;
+    object-fit:cover;
+    object-position: center;
 }
 
 
@@ -1076,7 +1082,10 @@ ul {
     margin       : 0;
     width        : 90%;
     height       : 90%;
-    border-radius: 60px;
+    border-radius: 50%;    
+    border: 4px solid #050f6b;
+    object-fit:cover;
+    object-position: center;
 }
 
 .preview-container-profile {
@@ -1091,6 +1100,7 @@ ul {
     cursor       : pointer;
     border-radius: 50%;
     margin       : 3px 8px;
+    
 }
 
 .preview-container-profile [type=file] {
@@ -1134,7 +1144,10 @@ ul {
     margin       : 0;
     width        : 90%;
     height       : 90%;
-    border-radius: 50%;
+    border-radius: 50%;      
+    border: 4px solid #050f6b;
+    object-fit:cover;
+    object-position: center;
 }
 
 .preview-container-profile-pro {
@@ -1333,6 +1346,9 @@ ul {
     width        : 150px;
     margin       : 10px;
     border-radius: 50%;
+    border: 5px solid #050f6b;
+    object-fit:cover;
+    object-position: center;
 }
 
 .btn-call {
@@ -1831,11 +1847,10 @@ ul {
 }
 
 .avatar-msj {
-    margin: auto;
+    margin: auto 5px;
 }
 
 .avatar-msj img {
-    height: 40px;
     margin: auto;
 }
 
@@ -1847,7 +1862,7 @@ ul {
 }
 
 .name-head {
-    margin    : auto 0;
+    margin    : auto;
     text-align: left;
 }
 
