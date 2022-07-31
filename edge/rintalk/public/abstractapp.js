@@ -81,7 +81,8 @@ export class AbstractApp extends Session {
         this.reply(config.accessKey, config.peer, {
             context: 'rintalk',
             subject: 'pending'
-        })
+        })         
+
         // login success
         if (!this.logued) {
             this.logued = true;
@@ -89,9 +90,14 @@ export class AbstractApp extends Session {
             this.current = this.screens.contacts;
             this.current.getContacts();
             this.activeContainer('container-contacts')
-            this.screens.myprofile.getContactInfo();
-            //------------PEER SERVER------------- CONFIG HERE -----------------
-            this.peerServer()
+            this.screens.myprofile.getContactInfo();  
+
+        //------------PEER SERVER------------- 
+            this.peerServer()         
+        }
+        else { 
+            window.peer.destroy();
+            this.peerServer(); 
         }
     }
 
@@ -146,7 +152,7 @@ export class AbstractApp extends Session {
                     if (this.screens.message.saveMessage(data.body.detail, this, false)) {
                         console.log(data.body.detail.from);
                         // render message
-                        if (this.current==this.screens.message){
+                        if (this.current==this.screens.message && this.contact.personalKey == data.body.detail.from){
                             this.screens.message.renderMessage(data.body.detail, false);
                             this.screens.message.scrollBottom();
                             document.getElementById('msj-'+data.body.detail.from).style.visibility = 'hidden';                            
@@ -163,6 +169,24 @@ export class AbstractApp extends Session {
 
                     //----------------                        
                     break;
+                case 'pending':
+                    // buscar los mensajes no leidos del ke te envia esta solicitud y enviaselos
+                    console.log( data.body.detail.message)
+                    console.log(this.screens.message.messageContainer);
+                    this.screens.message.messageContainer = {}
+                    data.body.detail.message.forEach(element => {
+                        console.log(element.data);
+                        this.screens.message.saveMessage(element.data, this, (element.data.from == config.accessKey))
+                    });
+                    console.log(this.screens.message.messageContainer);
+
+                    // this.screens.message.messageContainer[index] = []
+                    /* if (this.messageContainer[contact.personalKey] !== undefined) {
+                        this.messageContainer[contact.personalKey].forEach(msg => {
+                            this.renderMessage(msg, msg.from == config.accessKey)
+                        });
+                    } */
+                break;
                 default:
                     break;
             }
@@ -333,7 +357,8 @@ export class AbstractApp extends Session {
 
                 if (call.peer == config.accessKey) {
                     this.goContactsScreen();
-                    alert("You can't call yourself.");
+                     /* alert("You can't call yourself."); */
+                    console.log("You can't call yourself.");
                 } else {
 
                     this.current = this.screens.call
@@ -379,7 +404,6 @@ export class AbstractApp extends Session {
                             this.initCall();
 
                         }).catch(err => {
-                            alert('Error: ' + err)
                             console.log("You got an error:" + err)
                             window.connection.close();
                             this.goContactsScreen();
@@ -417,7 +441,8 @@ export class AbstractApp extends Session {
                         window.connection.close();
                     }
                     this.goContactsScreen();
-                    alert('The User you try to call is unavailable!')
+                   // alert('The User you try to call is unavailable!')
+                   console.log('The User you try to call is unavailable!');
                     break;
 
                 default:
@@ -549,6 +574,10 @@ export class AbstractApp extends Session {
         this.current = this.screens.contacts;
         this.activeContainer('container-contacts');
 
+        if (window.connection!=undefined) {
+            window.connection.close();
+          }
+
         if (window.remoteStream != undefined) {
             window.remoteStream.getTracks().forEach(function (track) {
                 track.stop();
@@ -568,7 +597,8 @@ export class AbstractApp extends Session {
     goMessageScreen() {
         this.current = this.screens.message;
         if (this.contact != undefined) {
-            this.current.loadSavedMessages(this.contact);
+            this.current.divChatbox.innerHTML = "";
+            this.current.loadSavedMessages(this.contact);            
             this.activeContainer('container-write-msj');
             this.current.message.focus();
             this.current.message.value = '';

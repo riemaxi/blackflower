@@ -84,6 +84,7 @@ export class IMessage {
             }
 
             this.message.value = ''
+            console.log('message container local:', this.messageContainer);
         }
     }
 
@@ -118,7 +119,8 @@ export class IMessage {
 
         let liObj = document.createElement("li")
         liObj.innerHTML = html
-        this.divChatbox.appendChild(liObj)
+        this.divChatbox.appendChild(liObj)   
+        this.scrollBottom();             
     }
 
     padZero(v) {
@@ -147,8 +149,13 @@ export class IMessage {
         let index = yo ? msg.to : msg.from
 
         let notifyMessage = () => {
-            let num = parseInt(document.getElementById('msj-'+index).textContent)+1;
-            document.getElementById('msj-'+index).textContent = num;           
+            try {
+                let num = parseInt(document.getElementById('msj-'+index).textContent)+1;
+                document.getElementById('msj-'+index).textContent = num;      
+            } catch (error) {
+                return false
+            }
+                 
         }
 
         if (this.messageContainer[index] === undefined) {
@@ -177,9 +184,10 @@ export class IMessage {
             this.divChatbox.innerHTML = ''
             if (this.messageContainer[contact.personalKey] !== undefined) {
                 this.messageContainer[contact.personalKey].forEach(msg => {
-                    this.renderMessage(msg, msg.from == config.accessKey)
+                    this.renderMessage(msg, msg.from == config.accessKey)                                  
                 });
-            }
+            }   
+            this.scrollBottom();         
             document.getElementById('img-avatar-msj').src = contact.avatar;
             document.getElementById('name-user-msj').textContent = contact.personalName + ' ' + contact.personalSurname;
         } catch (error) {

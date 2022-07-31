@@ -77,7 +77,8 @@ export class ICall {
       this.setEnableVideoIcon();
     }
     if (id == config.accessKey) {
-      alert("You can't call yourself.");
+      /* alert("You can't call yourself."); */
+      console.log("You can't call yourself.");
     } else {
       navigator.mediaDevices
         .getUserMedia({ video: true, audio: true })
@@ -128,10 +129,9 @@ export class ICall {
           
         })
         .catch((err) => {
-          alert("Error: " + err);
           console.log("You got an error:" + err);          
           ctx.goContactsScreen();
-          if (window.connection) {
+          if (window.connection!=undefined) {
             window.connection.close();
           }
           

@@ -513,7 +513,6 @@ body {
     width       : 45px;
     margin       : auto 8px auto 2px;
     border-radius: 50%;
-    border: 2px solid rgb(11, 11, 118);
     object-fit:cover;
     object-position: center;
 }
@@ -850,7 +849,6 @@ ul {
     width        : 100%;
     height       : 100%;
     border-radius: 50%;
-    border: 2px solid #050f6b;
     object-fit:cover;
     object-position: center;
 }
@@ -1082,8 +1080,7 @@ ul {
     margin       : 0;
     width        : 90%;
     height       : 90%;
-    border-radius: 50%;    
-    border: 4px solid #050f6b;
+    border-radius: 50%;
     object-fit:cover;
     object-position: center;
 }
@@ -1144,8 +1141,7 @@ ul {
     margin       : 0;
     width        : 90%;
     height       : 90%;
-    border-radius: 50%;      
-    border: 4px solid #050f6b;
+    border-radius: 50%;
     object-fit:cover;
     object-position: center;
 }
@@ -1248,6 +1244,8 @@ ul {
     width        : 230px;
     margin-bottom: 10px;
     border-radius: 50%;
+    object-fit:cover;
+    object-position: center;
 }
 
 .blue-footer {
@@ -1346,7 +1344,6 @@ ul {
     width        : 150px;
     margin       : 10px;
     border-radius: 50%;
-    border: 5px solid #050f6b;
     object-fit:cover;
     object-position: center;
 }
@@ -1502,7 +1499,6 @@ ul {
     max-width    : 100%;
     max-height   : 100%;
     flex-grow    : 1;
-    border-radius: 50%;
 }
 
 /*img small*/

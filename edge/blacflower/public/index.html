@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/img BF_web/icon_blackflower.svg">
+    <title class="title-web">Blackflower - Unidirectional Networking Platform</title>
+
+</head>
+
+<body>
+
+   
+
+
+    <div class="grid-container">
+
+        <!---------------------------- HEADER ------------------------------>
+        <div class="header-container">
+            <div class="headerL"><img src="assets/img BF_web/header_left.svg" alt="headerL"></div>
+            <div class="headerC"><img src="assets/img BF_web/header_center.svg" alt="headerC"></div>
+            <div class="headerR"><img src="assets/img BF_web/header_right.svg" alt="headerR"></div>
+        </div>
+
+        <!---------------------------- CENTER ------------------------------>
+        <div class="center-container">
+
+            <!---------------------------- LOGIN ------------------------------>
+            <div class="center-column1" >
+                <div class="center-column1-container-login">
+                    <form id="loginForm">
+                        
+                        <div class="title-login">
+                        <b class="text-log">LOGIN</b>
+                        <img class="cerrar" src="assets/img BF_web/close.svg" alt="">
+                        </div>
+                        <div class="inputs"> 
+                        <div class="key">
+                        <input id="access-Key" type="text" class="form-input-login" placeholder="Access Key" />
+                            <div class="pad-log" >
+                        <img class="login-key" src="assets/img BF_web/login-key.svg" alt="">
+                    </div>  
+                    </div>
+                       <div class="pass">
+                        <input id="password" type="password" name="Password" class="form-input-login"
+                            placeholder="Password" />
+                            <div class="pad-log">
+                            <img class="login-pass"  src="assets/img BF_web/login-passw.svg" alt=""> 
+                        </div>
+                        </div>
+                    </div>
+                            
+                            
+                            <div class="remember-me">
+                              <input type="checkbox"> 
+                              <label for="remember" class="remember">Remember me</label>
+                            </div>
+                        <p id="message" class="message"> Invalid Access Key or Password </p>
+                      
+                        <input id="enter" type="button" value="ENTER" class="button-login">
+                    </form>
+                </div>
+                <div class="center-column1-container-service">
+                    <!----------------------------SEARCH-SERVICES ------------------------------>
+                   
+
+                        <div class="search-input">
+                           
+                            <input id="service-name" type="text" class="form-input-search"
+                                    placeholder="Search services">
+                              <button id="search-service" type="button" class="button-search"></button>
+                            
+
+                            <ul class="list-services">
+                                <li id="adversiting" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_advertising.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Adversiting</span>
+                                </li>
+                                <li id="art-culture" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_artandculture.svg"
+                                            alt="">
+                                    </div>
+                                    <span>Art and Culture</span>
+                                </li>
+                                <li id="business-service" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_businessservice.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Business Service</span>
+                                </li>
+                                <li id="communication" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_communication.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Communication</span>
+                                </li>
+                                <li id="computing" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_computing.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Computing</span>
+                                </li>
+                                <li id="content-creation" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_contentcreation.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Content Creation</span>
+                                </li>
+                                <li id="cybersecurity" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_cybersecurity.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Cybersecurity</span>
+                                </li>
+                                <li id="ecommerce" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_ecommerce.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Ecommerce</span>
+                                </li>
+                                <li id="education" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_education.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Education</span>
+                                </li>
+                                <li id="energy" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_energy.svg" alt="">
+                                    </div>
+                                    <span> Energy</span>
+                                </li>
+                                <li id="entertainment" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_entertainment.svg"
+                                            alt="">
+                                    </div>
+                                    <span> Entertainment</span>
+                                </li>
+                                <li id="exchange" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_exchange.svg"
+                                            alt="">
+                                    </div>
+                                    <span id="exchange"> Exchange</span>
+                                </li>
+                                <li id="marketplace" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_marketplace.svg"
+                                            alt="">
+                                    </div>
+                                    <span id="marketplace"> Marketplace</span>
+                                </li>
+                                <li id="social" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_social.svg" alt="">
+                                    </div>
+                                    <span> Social</span>
+                                </li>
+                                <li id="travel" class="services">
+                                    <div class="icon-service">
+                                        <img class="icon-list-services" src="assets/img BF_web/icon_travel.svg" alt="">
+                                    </div>
+                                    <span> Travel</span>
+                                </li>
+                            </ul>
+                            
+                            </div>
+                       
+                    </form>
+                   
+                </div>
+                <div class="menu-log">
+                <button class="login-btn"><img class="log-img-ban" src="assets/img BF_web/user-login.svg" alt=""><br/> LOGIN</button>
+            </div>
+            </div>
+
+            <div class="empty"></div>
+            <!---------------------------- COLUMN 2 ------------------------------>
+            <div class="center-column2">
+
+                <!---------------------------- WORLDWIDE INFRASTRUCTURE (SMALL MAP) ------------------------------>
+                <div class="center-column2-row1">
+                    <div class="card-world">
+                        <div class="world-map-head"><b>WORLDWIDE INFRASTRUCTURE</b></div>
+                        <img id="map" src="assets/img BF_web/worldwide.jpg" alt="">
+
+                        <table class="card-world-table">
+                            <tr>
+                                <td class="bullet">
+                                    <div id="b-tokyo"></div>
+                                </td>
+                                <td id="tokyo" class="country">Tokyo</td>
+                                <td class="bullet">
+                                    <div id="b-kuala"></div>
+                                </td>
+                                <td id="kuala" class="country">Kuala Lumpur</td>
+                                <td class="bullet">
+                                    <div id="b-saopaulo"></div>
+                                </td>
+                                <td id="sao-paulo" class="country">Sao Paulo</td>
+                                <td class="bullet">
+                                    <div id="b-cape"></div>
+                                </td>
+                                <td id="cape-town" class="country">Cape Town</td>
+                            </tr>
+                            <tr>
+                                <td class="bullet">
+                                    <div id="b-kong"></div>
+                                </td>
+                                <td id="hon-kong" class="country">Hong Kong</td>
+                                <td class="bullet">
+                                    <div id="b-sydney"></div>
+                                </td>
+                                <td id="sydney" class="country">Sydney</td>
+                                <td class="bullet">
+                                    <div id="b-mexico"></div>
+                                </td>
+                                <td id="mexico" class="country">Mexico City</td>
+                                <td class="bullet">
+                                    <div id="b-usa"></div>
+                                </td>
+                                <td id="usa" class="country">USA</td>
+                            </tr>
+                            <tr>
+                                <td class="bullet">
+                                    <div id="b-mumbai"></div>
+                                </td>
+                                <td id="mumbai" class="country">Mumbai</td>
+                                <td class="bullet">
+                                    <div id="b-istambul"></div>
+                                </td>
+                                <td id="istanbul" class="country">Istanbul</td>
+                                <td class="bullet">
+                                    <div id="b-santiago"></div>
+                                </td>
+                                <td id="santiago-chile" class="country">Santiago de Chile</td>
+                                <td class="bullet">
+                                    <div id="b-europa"></div>
+                                </td>
+                                <td id="europa" class="country">Europa</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!---------------------------- STATISTICS ------------------------------>
+                <div class="center-column2-row2">
+                    <div class="card-world2">
+                        <div class="world-map-head2"><b>STATISTICS</b></div>
+                        <div class="tabla-statistics">
+                            <table class="table">
+                                <tr>
+                                    <td class="statistic-img"><img src="assets/img BF_web/icon_average_number.svg"
+                                            alt="">
+                                    </td>
+                                    <td class="description"> Average number of user</td>
+                                    <td class="result" id="user-average">%</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="statistic-img"><img src="assets/img BF_web/icon_average_traffic.svg "
+                                            alt="">
+                                    </td>
+                                    <td class="description">Average Trafic</td>
+                                    <td class="result" id="average-trafic">%</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="statistic-img"><img src="assets/img BF_web/icon_number_networks.svg"
+                                            alt="">
+                                    </td>
+                                    <td class="description">Number of netkworks</td>
+                                    <td class="result" id="number-netkworks">#</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="statistic-img"><img src="assets/img BF_web/icon_most_bussy_networks.svg"
+                                            alt=""></td>
+                                    <td class="description">Most bussy networks</td>
+                                    <td class="result" id="bussy-networks">#</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!---------------------------- LEGEND ------------------------------>
+                <div class="center-column2-row3">
+                    <div class="card-world3">
+                        <div class="world-map-head2"><b>LEGEND</b></div>
+                        <div>
+                            <table class="table-legend">
+                                <tr>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_node.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_portal.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_bridge.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_wifi.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_online.svg" class="online">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_pending.svg" class="pending">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_wifi1.svg" class="wifi1">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Node</td>
+                                    <td>Portal</td>
+                                    <td>Bridge</td>
+                                    <td>Wifi</td>
+                                    <td>Online</td>
+                                    <td>Pending</td>
+                                    <td>Wifi*</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------- WHAT IS BLACKFLOWER ------------------------------>
+                <div class="center-column2-row4">
+                    <div class="card-world4">
+
+                        <b>WHAT IS BLACKFLOWER?</b>
+                        <p> A highly configurable
+                            unidirectional networking platform. Blackflower serves as the ground for realtime
+                            distributed systems, which can be easily specified, rapidly developed and dynamically
+                            deployed.
+                            Any service provider can therefore react quickly to market and macro-environment events,
+                            resulting
+                            in a higher level of flexibility when taking business decisions, and greater competitive
+                            advantage.</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-column3">
+
+                <!---------------------------- BIG MAP!!! ------------------------------>
+                <div class="center-column3-row1">
+                    <div id="svgContainer"><img id="map" src="assets/img BF_web/map_usa.jpg" alt=""></div>
+                    <div id="map-loading">
+                        <svg class="circular-loader" viewBox="25 25 50 50">
+                            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#70c542"
+                                stroke-width="2" />
+                            Loading ...
+                        </svg>
+                    </div>
+                </div>
+
+
+                <!---------------------------- BUTTON COUNTRY ------------------------------>
+                <div class="center-column3-row2">
+                    <b class="infraestructure">INFRAESTRUCTURE</b>
+                    <div class="buttons-infraestucture">
+                        <input id="button-left-country" type="button" value="<" class="button-left">
+                        <input id="button-center-country" type="button" value="USA" class="button-country">
+                        <input id="button-right-country" type="button" value=">" class="button-right">
+                    </div>
+                </div>
+
+              <!--------------LEGEND 2 PARA VISTA CELL---------------->
+                <div class="center-column3-row3-repeat">
+                    <div class="card-world3">
+                        <div class="world-map-head2"><b>LEGEND</b></div>
+                        <div>
+                            <table class="table-legend">
+                                <tr>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_node.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_portal.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_bridge.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_wifi.svg">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_online.svg" class="online">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_pending.svg" class="pending">
+                                    </td>
+                                    <td>
+                                        <img src="assets/img BF_web/icon_wifi1.svg" class="wifi1">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Node</td>
+                                    <td>Portal</td>
+                                    <td>Bridge</td>
+                                    <td>Wifi</td>
+                                    <td>Online</td>
+                                    <td>Pending</td>
+                                    <td>Wifi*</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--------------------------->
+
+                <!---------------------------- FEATURES ------------------------------>
+                <div class="center-column3-row3">
+                    <div class="center-column3-row3-div1">
+                        <ul class="list-text">
+                            <li>• Access Control is a built-in functionality across all the nodes.</li>
+
+                            <li>• Encryption and security measures are up to the edge, allowing the network operation to
+                                be focused on just one thing: communication from point a to point b to happen as fast
+                                and
+                                reliable as possible.</li>
+                            <li>• The communication is always unidirectional, giving great possibilities for real time
+                                optimization.</li>
+                        </ul>
+                    </div>
+                    <div class="center-column3-row3-div2">
+                        <b>FEATURES</b> <br />
+                        <b class="feature-message">Discover everything you can do</b>
+                        <div class="img-text2">
+                            <div><img src="assets/img BF_web/icon_features1.svg" alt=""></div>
+                            <div><img src="assets/img BF_web/icon_features2.svg" alt=""></div>
+                            <div><img src="assets/img BF_web/icon_features3.svg" alt=""></div>
+                            <div><img src="assets/img BF_web/icon_features4.svg" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="center-column3-row3-div3">
+                        <ul class="list-text">
+                            <li>• Traffic balancing functionality is pluggable, as it is implemented by service
+                                providers.
+                            </li>
+                            <li>• Every user is registered for access on every node.</li>
+                            <li>• Nodes and bridges, the backbone of Blackflower, are based on commodity hardware, which
+                                makes the network highly repairable, replaceable and as a consequence resilient to
+                                changes at the
+                                edge, where the real business actions take place.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!---------------------------- FOOTER ------------------------------>
+        <div class="footer-container">
+            <div class="footerL">
+                <div class="links-web">
+                    <a class="iconlink" href="http://businesscity101.com/" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-businesscity" src="assets/img BF_web/logo_businesscity.svg" alt=""> </a>
+                    <a class="textolink" href="http://businesscity101.com/" target="_blank" rel="noonpener noreferrer">
+                        <p>Business City 101</p>
+                    </a>
+                </div>
+                <div>
+                    <a class="iconlink" href="" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-ringarden" src="assets/img BF_web/logo_ringarden.svg" alt=""></a>
+                    <a class="textolink" href="" target="_blank" rel="noonpener noreferrer">
+                        <p>Ringarden</p>
+                    </a>
+                </div>
+                <div>
+                    <a class="iconlink" href="" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-silqoin" src="assets/img BF_web/logo_silqoin.svg" alt=""></a>
+                    <a class="textolink" href="" target="_blank" rel="noonpener noreferrer">
+                        <p>Silqoin</p>
+                    </a>
+                </div>
+            </div>
+            <div class="footerC">
+                <p id="copyright">All rights Reserved | Copyright © 2022 Business City 101</p>
+            </div>
+            <div class="footerR">
+                <span>CONTACT US</span>
+                <div class="links-redes">
+                    <a class="ico" href="https://www.facebook.com/Silqoin" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-fb" src="assets/img BF_web/logo_fb.svg" alt=""></a>
+
+                    <a class="ico" href="https://www.instagram.com/silqoin/" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-instagram" src="assets/img BF_web/logo_instagram.svg" alt=""> </a>
+
+                    <a class="ico" href="https://twitter.com/silqoin" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-twitter" src="assets/img BF_web/logo_twitter.svg" alt=""></a>
+
+                    <a class="ico" href="https://www.youtube.com/channel/UCw1c8zu2ju-awQq_bBZkLVQ/about" target="_blank"
+                        rel="noonpener noreferrer">
+                        <img id="link-youtube" src="assets/img BF_web/logo_youtube.svg" alt=""></a>
+
+                    <a class="ico" href="info@businesscity101.com" target="_blank" rel="noonpener noreferrer">
+                        <img id="link-email" src="assets/img BF_web/logo_email.svg" alt=""></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h4 id="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <div class="tabla-statistics">
+                    <table class="table">
+                        <tr>
+                            <td class="statistic-img"><img src="assets/img BF_web/icon_average_number.svg" alt="">
+                            </td>
+                            <td class="description"> Users: </td>
+                            <td class="result" id="user-average-modal">%</td>
+                        </tr>
+
+                        <tr>
+                            <td class="statistic-img"><img src="assets/img BF_web/icon_average_traffic.svg " alt="">
+                            </td>
+                            <td class="description">Trafic: </td>
+                            <td class="result" id="average-trafic-modal">%</td>
+                        </tr>
+
+                        <tr>
+                            <td class="statistic-img"><img src="assets/img BF_web/icon_number_networks.svg" alt="">
+                            </td>
+                            <td class="description">Netkworks: </td>
+                            <td class="result" id="number-netkworks-modal">#</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-body-loading">
+                <svg class="circular-loader" viewBox="25 25 50 50">
+                    <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#70c542" stroke-width="2" />
+                    Loading ...
+                </svg>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./session.js"></script>
+    <script type="module" src="./abstractapp.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script type="module">
+        import { App } from "./app.js";
+        export let app = new App()
+    </script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+</body>
+
+</html>
+
+
+<!---------------------------- END ------------------------------>
