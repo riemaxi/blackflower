@@ -59,7 +59,8 @@ export class IAddContact {
             }
 
             if (ctx.editContact) {
-                config.contacts = config.contacts.filter( contact => contact.personalKey != personalKey )
+                
+                config.contacts = config.contacts.filter( contact => contact.personalKey != personalKey && contact.personalKey != ctx.contact.personalKey )
             }
             config.contacts.push(contact)
             console.log(config.contacts);

@@ -17,16 +17,21 @@
 }
 
 .light-theme{
- --background: linear-gradient(to bottom, #ccdff0ff, #1b6eb3ff);
+    --background: linear-gradient(to bottom, #ccdff0ff, #1b6eb3ff);
     --bg-menu-up: #ccdff0ff;
-    ;
     --bg-menu-down: #1b6eb3ff;
     --letter-white: black;
     --hamburguer  : #1b6eb3ff;
 }
 
-
-
+.default-theme {
+    --background  : linear-gradient(to bottom, #43b5e7ff, #131970ff);
+    --bg-menu-up  : linear-gradient(to bottom, #4372ccff, #132370ff);
+    --bg-menu-down: #030e35ff;
+    --letter-white: white;
+    --letter-black: black;
+    --hamburguer  : #ccdff0ff;
+}
 
 html {
     max-width: 500px;
@@ -490,7 +495,7 @@ body {
     width        : 10px;
     height       : 10px;
     border-radius: 50%;
-    background   : #39b34aff;
+   /*  background   : #39b34aff; */
     margin       : auto;
 }
 
@@ -786,7 +791,7 @@ ul {
 }
 
 .hamburguer-menu {
-    background-color: #ccdff0ff;
+    background-color: var(--hamburguer);
 }
 
 /*---------------------------ADD CONTACT VIEW--------------------------------------------------*/
@@ -800,9 +805,6 @@ ul {
     min-height: 100vh;
     box-shadow: 0 5px 10px 5px rgb(0 0 0 /30%);
     text-align: center;
-
-
-
 }
 
 #check-add-contact {
@@ -1554,7 +1556,7 @@ ul {
     padding-bottom: 5px;
     height    : fit-content;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    border    : 1px solid black;
+    border    : 1px solid black;    
 }
 
 #check-settings:checked~.hamburguer-menu li {

@@ -8,6 +8,7 @@ import { ILogout } from "./js/logout.js";
 import { IMyProfile } from "./js/myprofile.js";
 import { IPersonalInfo } from "./js/personalInfo.js";
 import { IMessage } from "./js/message.js";
+import { ISetting } from "./js/settings.js";
 
 import { ICall } from "./js/call.js";
 
@@ -25,13 +26,14 @@ export class AbstractApp extends Session {
             'myprofile': new IMyProfile(),
             'personalinfo': new IPersonalInfo(),
             'message': new IMessage(),
+            'setting': new ISetting(),
 
             'call': new ICall(),
         }
         this.current = this.screens.login
         this.containers = [
             'container-loader', 'container-login', 'container-contacts', 'container-add-contact',
-            'container-about', 'container-logout', 'container-profile',
+            'container-about', 'container-logout', 'container-profile', 'container-settings',
             'container-personal-info', 'container-write-msj',
             'container-calling', 'container-receive-call', 'container-active-video'
         ]
@@ -232,7 +234,10 @@ export class AbstractApp extends Session {
                 break;
             case 'h-m-setting':
                 console.log('go to action:', e.target.id)
-                this.toggleSettingMenu(e.target);
+                this.hideHamburguerMenu();
+                this.current = this.screens.setting;
+                this.activeContainer('container-settings');
+                //this.toggleSettingMenu(e.target);
                 break;
 
 
@@ -277,6 +282,10 @@ export class AbstractApp extends Session {
             case 'IMessage':
                 console.log('message event');
                 this.current.onIMessageEvent(e, this);
+                break;
+            case 'ISetting':
+                console.log('setting event');
+                this.current.onISettingEvent(e, this);
                 break;
 
             case 'ICall':
