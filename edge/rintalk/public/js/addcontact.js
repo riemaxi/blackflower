@@ -19,7 +19,6 @@ export class IAddContact {
                         break;
                     case 'preview':
                         console.log('go to action:', e.target.id)
-                       // this.cropImgAddContact(ctx)
                         break;
                     default:
                         break;
@@ -29,49 +28,72 @@ export class IAddContact {
         }
     }
 
-    cropImgAddContact(ctx){
-        document.getElementById('')
-    }
-
     addContact(ctx) {
-        // Personal
-        let avatar = document.getElementById('preview').src == window.location.origin + '/images/add-avatar.svg' ? 'images/user2.svg' : document.getElementById('preview').src
-        let personalName = document.getElementById('contact-pers-name').value;
-        let personalSurname = document.getElementById('contact-pers-surname').value;
-        let personalPhone = document.getElementById('contact-pers-phone').value;
-        let personalMobile = document.getElementById('contact-pers-mobile').value;
-        let personalKey = document.getElementById('contact-pers-key').value;
-        let personalEmail = document.getElementById('contact-pers-email').value;
-        let personalNote = document.getElementById('contact-pers-note').value;
-        // Profesional
-        let profesionalName = document.getElementById('contact-prof-name').value;
-        let profesionalSurname = document.getElementById('contact-prof-surname').value;
-        let profesionalProfesion = document.getElementById('contact-prof-profesion').value;
-        let profesionalCompany = document.getElementById('contact-prof-company').value;
-        let profesionalPhone = document.getElementById('contact-prof-phone').value;
-        let profesionalMobile = document.getElementById('contact-prof-mobile').value;
-        let profesionalKey = document.getElementById('contact-prof-key').value;
-        let profesionalEmail = document.getElementById('contact-prof-email').value;
-        let profesionalNote = document.getElementById('contact-prof-note').value;
+        let psName = (document.getElementById('contact-pers-name').value).replace(/\s+/g, '');
+        let psKey = (document.getElementById('contact-pers-key').value).replace(/\s+/g, '');
+        if (psName !="" && psKey != "") {
+            // Personal
+            let avatar = document.getElementById('preview').src == window.location.origin + '/images/add-avatar.svg' ? 'images/user2.svg' : document.getElementById('preview').src
+            let personalName = psName;
+            let personalSurname = document.getElementById('contact-pers-surname').value;
+            let personalPhone = document.getElementById('contact-pers-phone').value;
+            let personalMobile = document.getElementById('contact-pers-mobile').value;
+            let personalKey = psKey;
+            let personalEmail = document.getElementById('contact-pers-email').value;
+            let personalNote = document.getElementById('contact-pers-note').value;
+            // Profesional
+            let profesionalName = document.getElementById('contact-prof-name').value;
+            let profesionalSurname = document.getElementById('contact-prof-surname').value;
+            let profesionalProfesion = document.getElementById('contact-prof-profesion').value;
+            let profesionalCompany = document.getElementById('contact-prof-company').value;
+            let profesionalPhone = document.getElementById('contact-prof-phone').value;
+            let profesionalMobile = document.getElementById('contact-prof-mobile').value;
+            let profesionalKey = document.getElementById('contact-prof-key').value;
+            let profesionalEmail = document.getElementById('contact-prof-email').value;
+            let profesionalNote = document.getElementById('contact-prof-note').value;
 
-        const contact = {
-            avatar, personalName, personalSurname, personalPhone, personalMobile, personalKey, personalEmail, personalNote,
-            profesionalName, profesionalSurname, profesionalProfesion, profesionalCompany, profesionalPhone, profesionalMobile,
-            profesionalKey, profesionalEmail, profesionalNote
+            const contact = {
+                avatar, personalName, personalSurname, personalPhone, personalMobile, personalKey, personalEmail, personalNote,
+                profesionalName, profesionalSurname, profesionalProfesion, profesionalCompany, profesionalPhone, profesionalMobile,
+                profesionalKey, profesionalEmail, profesionalNote
+            }
+
+            if (ctx.editContact) {
+                config.contacts = config.contacts.filter( contact => contact.personalKey != personalKey )
+            }
+            config.contacts.push(contact)
+            console.log(config.contacts);
+            localStorage.setItem('contacts-' + config.accessKey, JSON.stringify({ contacts: config.contacts }));
+            
+        //    this.updateContactInfoService(ctx)
+
+            ctx.current.clearScreen(ctx)
+            ctx.current = ctx.screens.contacts;
+            ctx.current.getContacts()
+            ctx.activeContainer('container-contacts')
+            swal("Success!", {
+                icon: "success",
+            });
+        } else {
+            swal("Personal Name / AccessKey required!", {
+                icon: "warning",
+            });
         }
-
-        if (ctx.editContact) {
-            config.contacts = config.contacts.filter( contact => contact.personalKey != personalKey )
-        }
-        config.contacts.push(contact)
-        console.log(config.contacts);
-        localStorage.setItem('contacts-' + config.accessKey, JSON.stringify({ contacts: config.contacts }));
-
-        ctx.current.clearScreen()
-        ctx.current = ctx.screens.contacts;
-        ctx.current.getContacts()
-        ctx.activeContainer('container-contacts')
+        
     }
+
+    /* updateContactInfoService(ctx){
+        ctx.reply(config.accessKey, config.peerPersonalStorage, {
+            context: 'rintalk',
+            subject: 'add',
+            detail: {
+                owner: {
+                    accesskey: config.accessKey
+                },                   
+                data: config.contacts
+            }
+        })
+    } */
 
     cancelAddContact(ctx) {
         ctx.current.clearScreen()

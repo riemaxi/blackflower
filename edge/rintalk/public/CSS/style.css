@@ -868,6 +868,10 @@ ul {
 
 }
 
+#archivo-addimg{
+    display: none;
+}
+
 .add-avatar {
     display        : flex;
     justify-content: center;

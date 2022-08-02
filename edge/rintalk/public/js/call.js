@@ -232,10 +232,10 @@ export class ICall {
   }
 
   setEnableVideoIcon(){
-    document.getElementById('video-active-call').src= 'images/down-video.svg';
-    document.getElementById('video-calling-btn').src= 'images/down-video.svg';
-    document.getElementById('video-reciving-call-btn').src= 'images/down-video.svg';
-    document.getElementById('video-active-vidcall').src= 'images/down-video.svg';
+    document.getElementById('video-active-call').src= 'images/video-call.svg';
+    document.getElementById('video-calling-btn').src= 'images/video-call.svg';
+    document.getElementById('video-reciving-call-btn').src= 'images/video-call.svg';
+    document.getElementById('video-active-vidcall').src= 'images/video-call.svg';
 
     document.getElementById('turn-active-vidcall').style.visibility = '';
   }

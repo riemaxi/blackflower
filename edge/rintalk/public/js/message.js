@@ -14,6 +14,7 @@ export class IMessage {
         this.divChatbox = document.getElementById('divChatbox');
 
         this.messageContainer = {}
+        
     }
 
     onIMessageEvent(e, ctx) {
@@ -35,7 +36,8 @@ export class IMessage {
                         console.log(e.target.id);
                         break;
                     case 'addimage-message-btn':
-                        console.log(e.target.id);
+                        console.log(e.target.id);                        
+                        this.procesarImgChat(ctx)
                         break;
                     case 'addfile-message-btn':
                         console.log(e.target.id);
@@ -84,42 +86,46 @@ export class IMessage {
             }
 
             this.message.value = ''
-            console.log('message container local:', this.messageContainer);
         }
     }
 
     renderMessage(msg, yo) {
         console.log(msg);
-        let html = '';
-        let fecha = new Date(msg.time);
-        let hora = fecha.getHours() + ':' + this.padZero(fecha.getMinutes());
+        if (msg.message!=undefined) {
+            let html = '';
+            let fecha = new Date(msg.time);
+            let hora = fecha.getHours() + ':' + this.padZero(fecha.getMinutes());
 
-        let adminClass = 'info';
+            let adminClass = 'info';
 
-        if (yo) {
-            html += '<li class="reverse fadeIn">';
-            html += '    <div class="chat-content">';
-            html += '        <div class="box bg-light-inverse">' + msg.message + '</div>';
-            html += '    </div>';
-            html += '    <div class="chat-time">' + hora + '</div>';
-            html += '</li>';
-            document.getElementById('msj-'+msg.to).textContent = 0;
-            document.getElementById('msj-'+msg.to).style.visibility = 'hidden';
-        } else {
+            if (yo) {
+                html += '<li class="reverse fadeIn">';
+                html += '    <div class="chat-content">';
+                html += '        <div class="box bg-light-inverse">' + msg.message + '</div>';
+                html += '    </div>';
+                html += '    <div class="chat-time">' + hora + '</div>';
+                html += '</li>';
+                document.getElementById('msj-'+msg.to).textContent = 0;
+                document.getElementById('msj-'+msg.to).style.visibility = 'hidden';
+            } else {
 
-            html += '<li class="fadeIn">';
-            html += '    <div class="chat-content">';
-            html += '        <div class="box bg-light-' + adminClass + '">' + msg.message + '</div>';
-            html += '    </div>';
-            html += '    <div class="chat-time">' + hora + '</div>';
-            html += '</li>';
-            document.getElementById('msj-'+msg.from).textContent = 0;
-            document.getElementById('msj-'+msg.from).style.visibility = 'hidden';            
+                html += '<li class="fadeIn">';
+                html += '    <div class="chat-content">';
+                html += '        <div class="box bg-light-' + adminClass + '">' + msg.message + '</div>';
+                html += '    </div>';
+                html += '    <div class="chat-time">' + hora + '</div>';
+                html += '</li>';
+                document.getElementById('msj-'+msg.from).textContent = 0;
+                document.getElementById('msj-'+msg.from).style.visibility = 'hidden';            
         }
 
         let liObj = document.createElement("li")
         liObj.innerHTML = html
-        this.divChatbox.appendChild(liObj)   
+        this.divChatbox.appendChild(liObj)  
+        } else if (msg.image!=undefined){
+            this.renderImage(msg, yo)
+        }
+         
         this.scrollBottom();             
     }
 
@@ -194,6 +200,80 @@ export class IMessage {
             document.getElementById('img-avatar-msj').src = 'images/user1.svg'
             document.getElementById('name-user-msj').textContent = '';
         }
-
     }
+      
+    procesarImgChat(ctx) {
+
+        document.getElementById('archivo-addimg')
+        .addEventListener('change', (e) => {
+            var imagen = event.target.files[0];      
+            var lector = new FileReader();
+            lector.addEventListener('load', (e) => {
+                console.log('Do it!!');
+
+                let detail = {
+                    to: ctx.contact.personalKey,
+                    from: config.accessKey,
+                    time: Date.now(),
+                    node: config.node,
+                    image: { base64: e.target.result }
+                }
+
+                ctx.reply(config.accessKey, config.peer, {
+                    context: 'rintalk',
+                    subject: 'image-chat',
+                    detail: detail
+                })
+
+                if (this.saveMessage(detail, ctx, true)) {
+                    this.renderImage(detail, true);
+                    this.scrollBottom();
+                }
+
+            }, false);
+        
+            lector.readAsDataURL(imagen);
+            document.getElementById('archivo-addimg').value=null;
+            }, false)
+
+        document.getElementById('archivo-addimg').click()
+        
+    }
+
+    renderImage(msg, yo) {
+        console.log(msg);
+        let html = '';
+        let fecha = new Date(msg.time);
+        let hora = fecha.getHours() + ':' + this.padZero(fecha.getMinutes());
+
+        let adminClass = 'info';
+
+        if (yo) {
+            html += '<li class="reverse fadeIn">';
+            html += '    <div class="chat-content">';
+            html += '        <div class="box bg-light-inverse img-center"><img class="img-chat" src="' + msg.image.base64 + '"></img></div>';
+            html += '    </div>';
+            html += '    <div class="chat-time">' + hora + '</div>';
+            html += '</li>';
+            document.getElementById('msj-'+msg.to).textContent = 0;
+            document.getElementById('msj-'+msg.to).style.visibility = 'hidden';
+        } else {
+
+            html += '<li class="fadeIn">';
+            html += '    <div class="chat-content">';
+            html += '        <div class="box bg-light-' + adminClass + ' img-center"><img class="img-chat" src="' + msg.image.base64 + '"></img></div>';
+            html += '    </div>';
+            html += '    <div class="chat-time">' + hora + '</div>';
+            html += '</li>';
+            document.getElementById('msj-'+msg.from).textContent = 0;
+            document.getElementById('msj-'+msg.from).style.visibility = 'hidden';
+        }
+
+        let liObj = document.createElement("li")
+        liObj.innerHTML = html
+        this.divChatbox.appendChild(liObj)   
+        this.scrollBottom();             
+    }
+      
+      
 }

@@ -129,8 +129,8 @@ export class AbstractApp extends Session {
 
     onReply(data) {
         // first validate if data comes from server
-        console.log('server is: ', data);
-        if (data.body.from == config.peer) {
+        console.log('Server recived data: ', data);
+        if (data.body.from == config.peer || data.body.from == config.peerPersonalStorage) {
             switch (data.body.subject) {
                 case 'message':
                     // manage data .....
@@ -171,8 +171,6 @@ export class AbstractApp extends Session {
                     break;
                 case 'pending':
                     // buscar los mensajes no leidos del ke te envia esta solicitud y enviaselos
-                    console.log( data.body.detail.message)
-                    console.log(this.screens.message.messageContainer);
                     this.screens.message.messageContainer = {}
                     data.body.detail.message.forEach(element => {
                         console.log(element.data);
@@ -180,12 +178,21 @@ export class AbstractApp extends Session {
                     });
                     console.log(this.screens.message.messageContainer);
 
-                    // this.screens.message.messageContainer[index] = []
-                    /* if (this.messageContainer[contact.personalKey] !== undefined) {
-                        this.messageContainer[contact.personalKey].forEach(msg => {
-                            this.renderMessage(msg, msg.from == config.accessKey)
-                        });
-                    } */
+                break;
+                case 'image-chat':
+
+                    if (this.screens.message.saveMessage(data.body.detail, this, false)) {
+                        console.log('Image recived from: ', data.body.detail.from);
+                        // render message
+                        if (this.current==this.screens.message && this.contact.personalKey == data.body.detail.from){
+                            this.screens.message.renderImage(data.body.detail, false);
+                            this.screens.message.scrollBottom();
+                            document.getElementById('msj-'+data.body.detail.from).style.visibility = 'hidden';                            
+                        } else {
+                            document.getElementById('msj-'+data.body.detail.from).style.visibility = '';
+                        }
+                    }
+
                 break;
                 default:
                     break;

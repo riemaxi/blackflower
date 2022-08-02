@@ -14,9 +14,7 @@ class App extends require('./abstractapp') {
     }
 
     onPending(data) {
-        console.log(data);
-        let message = this.db.list(item =>( item.data.to === data.body.from || item.data.from === data.body.from )/*  && !item.data.verify */);
-        console.log(message);
+        let message = this.db.list(item =>( item.data.to === data.body.from || item.data.from === data.body.from )/*  && !item.data.verify */); // send All now
         this.reply(config.accessKey, data.body.from, {
             subject: 'pending',
             detail: {
@@ -25,16 +23,21 @@ class App extends require('./abstractapp') {
         });
     }
 
-   addMessage(data) {
+   async addMessage(data) {
         let verify = false;
-        this.db.add(uuidv4(), {verify, ...data.body.detail});
-        this.db.save(config.path);
-        this.reply(config.accessKey, data.body.detail.to, {
-            subject: 'message',
-            detail: {
-                ...data.body.detail
-            }
-        });
+        let exist = await this.db.list(item =>( item.data.time === data.body.detail.time ));
+        if (exist.length<=0) {
+            console.log('Send Message...');
+            this.db.add(uuidv4(), {verify, ...data.body.detail});
+            this.db.save(config.path);
+            this.reply(config.accessKey, data.body.detail.to, {
+                subject: 'message',
+                detail: {
+                    ...data.body.detail
+                }
+            });
+        }
+        
     }
     message_received(data) {
 
@@ -44,6 +47,16 @@ class App extends require('./abstractapp') {
             detail: {
                 to: data.body.detail.to,
                 time: data.body.detail.time
+            }
+        });
+    }
+
+    sendImgChat(data) {
+        console.log('Image Recived! Sending ...');
+        this.reply(config.accessKey, data.body.detail.to, {
+            subject: 'image-chat',
+            detail: {
+                ...data.body.detail
             }
         });
     }

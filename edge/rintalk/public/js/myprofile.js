@@ -15,7 +15,6 @@ export class IMyProfile {
                         break;
                     case 'info-ok-btn':
                         this.saveContactInfo();
-                        ctx.goContactsScreen();
                         break;
                     case 'pers-info-share-btn':
                         this.sharePersonalInfo();
@@ -120,14 +119,95 @@ export class IMyProfile {
         }
         config.profile = myProfile;
         localStorage.setItem('profile-' + config.accessKey, JSON.stringify({ profile: config.profile }))
+        swal("Success!", {
+            icon: "success",
+        });
     }
 
     sharePersonalInfo() {
-        console.log('sharePersonalInfo');
+        console.log('sharePersonalInfo');       
+
+        let cp = '<h3>Personal Information:</h3>'        
+
+        for (let index in config.profile){
+            if (config.profile[index] != '' && index != 'personalAvatar') {
+                switch (index) {
+                    case 'personalName':
+                        cp += `Name: ${config.profile[index]}<br>`;
+                        break;
+                    case 'personalSurname':
+                        cp += `Surname: ${config.profile[index]}<br>`;
+                        break;
+                    case 'personalPhone':
+                        cp += `Phone: ${config.profile[index]}<br>`;
+                        break;
+                    case 'personalMobile':
+                        cp += `Mobile: ${config.profile[index]}<br>`;
+                        break;
+                    case 'personalKey':
+                        cp += `AccessKey: ${config.profile[index]}<br>`;
+                        break;
+                    case 'personalEmail':
+                        cp += `Email: ${config.profile[index]}<br>`;
+                        break;
+
+                    default:
+                        break;
+                }                
+            }
+        }
+        // -------------- Temporal -----------------
+        navigator.clipboard.writeText(cp);
+        swal("Information Copied!", {
+            icon: "success",
+        });
+
     }
 
     shareProfesionalInfo() {
         console.log('shareProfesionalInfo');
+
+        let cp = '<h3>Profesional Information:</h3>'        
+
+        for (let index in config.profile){
+            if (config.profile[index] != '' && index != 'personalAvatar') {
+                switch (index) {                   
+                        
+                    case 'profesionalName':
+                        cp += `Name: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalSurname':
+                        cp += `Surname: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalProfesion':
+                        cp += `Profesion: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalCompany':
+                        cp += `Company: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalPhone':
+                        cp += `Phone: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalMobile':
+                        cp += `Mobile: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalKey':
+                        cp += `AccessKey: ${config.profile[index]}<br>`;
+                        break;
+                    case 'profesionalEmail':
+                        cp += `Email: ${config.profile[index]}<br>`;
+                        break;
+                
+                    default:
+                        break;
+                }                
+            }
+        }
+        // -------------- Temporal -----------------
+        navigator.clipboard.writeText(cp);
+        swal("Information Copied!", {
+            icon: "success",
+        });
     }
 
 }

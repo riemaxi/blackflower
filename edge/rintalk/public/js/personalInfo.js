@@ -98,44 +98,29 @@ export class IPersonalInfo {
                     case 'personalEmail':
                         cp += `Email: ${ctx.contact[index]}<br>`;
                         break;
-                   /*  case 'personalNote':
-                        cp += `Note: ${ctx.contact[index]}<br>`;
-                        break; */
-                        
-                    /* case 'profesionalName':
-                        
-                        break;
-                    case 'profesionalSurname':
-                        
-                        break;
-                    case 'profesionalProfesion':
-                        
-                        break;
-                    case 'profesionalCompany':
-                        
-                        break;
-                    case 'profesionalPhone':
-                        
-                        break;
-                    case 'profesionalMobile':
-                        
-                        break;
-                    case 'profesionalKey':
-                        
-                        break;
-                    case 'profesionalEmail':
-                        
-                        break;
-                    case 'profesionalNote':
-                        
-                        break;
-                 */
+                   
                     default:
                         break;
                 }                
             }
         }
+        // -------------- Temporal -----------------
         navigator.clipboard.writeText(cp);
+        swal("Information Copied!", {
+            icon: "success",
+        });
+        
+        /*     ctx.reply(config.accessKey, config.peerPersonalStorage, {
+                context: 'rintalk',
+                subject: 'get',
+                detail: {
+                    owner: {
+                        accesskey: config.accessKey
+                    },                   
+                    data: config.contacts
+                }
+            })
+         */
     }
 
     copyContactInfo(ctx){
@@ -148,6 +133,9 @@ export class IPersonalInfo {
         }
         /* Copy the text inside the text field */
         navigator.clipboard.writeText(cp);
+        swal("Information Copied!", {
+            icon: "success",
+        });
     }
 
     removeContact(ctx){

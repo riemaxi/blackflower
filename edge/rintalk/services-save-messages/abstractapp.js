@@ -16,16 +16,15 @@ class AbstractApp extends require('./session') {
         this.init();
     }
 
-    init() {
-    }
-    onPending(data) {
-    }
-    addMessage(data) {
-    }
-    message_received(data) {
-    }
-    onReply(data) {
+    init() {}
 
+    onPending(data) {}
+    addMessage(data) {}
+    message_received(data){}
+    sendImgChat(data){}
+
+
+    onReply(data) {
         // SEE DATA STRUCTURE RECIVED:
         //console.log(data);
         console.log(this.db != null);
@@ -39,6 +38,9 @@ class AbstractApp extends require('./session') {
                 break;
             case 'message-recived':     // WAIT FOR DELIVERY CONFIRMATION AND NOTIFY TO ORIGIN
                 this.message_received(data)
+                break;
+            case 'image-chat':             // RECIVE MESSAGE AND SEND IT TO DESTINATION
+                this.sendImgChat(data);
                 break;
 
             default:

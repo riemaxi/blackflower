@@ -108,6 +108,12 @@
     padding-left : 0px;
     padding-right: 5px;
 }
+.box.img-center{    
+    text-align: center;
+}
+.img-chat{
+    max-width: 80%;
+}
 
 textarea {
     width: 100%;
