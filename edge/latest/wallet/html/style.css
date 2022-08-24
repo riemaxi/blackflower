@@ -1,0 +1,54 @@
+html, body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%
+}
+
+.page{
+	height: 100vh;
+	width: 100%;
+	color: black;
+}
+
+button{
+	width: 200px;
+}
+
+#login{
+	display: none;
+} 
+
+#home{
+	display: none;
+}
+
+#balance{
+	display: none;
+}
+
+#see-token{
+	display: none;
+}
+
+#receive-coin{
+	display: none;
+}
+
+#add-token{
+	display: none;
+}
+
+#send-coin{
+	display: none;
+}
+
+#sell{
+	display: none;
+}
+
+
+#buy{
+	display: none;
+}
+
+

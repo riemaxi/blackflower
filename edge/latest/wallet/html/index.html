@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+	<link rel='stylesheet' href='style.css'>
+</head>
+<html>
+	<body>
+		<div class='page' id='login'>
+			<h3>Welcome to your wallet</h3>
+			<div><button id='login-ok'>Login ok</button></div>
+			<div><button id='login-fail'>Login fail</button></div>
+			<div><button id='login-password'>Password</button></div>
+		</div>
+
+		<div class='page' id='home'>
+			<div>
+				<h3>Menu</h3>
+				<div><button id='menu-logout'>Logout</button></div>
+				<div><button id='menu-witness'>Witness</button></div>
+				<div><button id='menu-account'>Account</button></div>
+				<div>
+					<h3>Menu Security</h3>
+					<div><button id='menu-2phaseA'>Two Phase Auth</button></div>
+					<div><button id='menu-backup'>Backup</button></div>
+				</div>
+			</div>
+
+			<div>
+				<h3>Home</h3>
+				<div><button id='home-sell'>Sell</button></div>
+				<div><button id='home-buy'>Buy</button></div>
+				<div><button id='home-rc'>Receive coins</button></div>
+				<div><button id='home-sc'>Send coins</button></div>
+				<div><button id='home-swap'>Swap</button></div>
+				<div><button id='home-balance'>Balance</button></div>
+				<div><button id='home-market-crypto-left'>Market crypto left</button></div>
+				<div><button id='home-market-crypto-right'>Market crypto right</button></div>
+				<div><button id='home-jobchain'>JobChain</button></div>
+				<div><button id='home-address-book'>Address book</button></div>
+				<div>
+					<h3>Home Network</h3>
+					<div><button id='menu-add-network'>Add network</button></div>
+					<div><button id='menu-select-network'>Select network</button></div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class='page' id='balance'>
+			<h3>Balance</h3>
+			<div><button id='balance-home'>Home</button></div>
+
+			<div><button id='balance-fav'>Fav tokens</button></div>
+			<div><button id='balance-add-token'>Add token</button></div>
+			<div><button id='balance-see-all'>See all tokens</button></div>
+			<div><button id='balance-see-token'>See token</button></div>
+
+		</div>
+
+		<div class='page' id='add-token'>
+			<h3>Add token</h3>
+			<div><button id='at-logout'>Logout</button></div>
+			<div><button id='at-home'>Home</button></div>
+		</div>
+
+		<div class='page' id='see-token'>
+			<h3>See token</h3>
+			<div><button id='token-home'>Home</button></div>
+			<div><button id='token-add-to-fav'>Add to favs</button></div>
+		</div>
+
+
+		<div class='page' id='receive-coin'>
+			<h3>Receive coin</h3>
+			<div><button id='rc-logout'>Logout</button></div>
+			<div><button id='rc-home'>Home</button></div>
+		</div>
+
+		<div class='page' id='send-coin'>
+			<h3>Add coin</h3>
+			<div><button id='sc-logout'>Logout</button></div>
+			<div><button id='sc-home'>Home</button></div>
+		</div>
+
+		<div class='page' id='buy'>
+			<h3>Buy</h3>
+			<div><button id='buy-logout'>Logout</button></div>
+			<div><button id='buy-home'>Home</button></div>
+		</div>
+
+		<div class='page' id='sell'>
+			<h3>Sell</h3>
+			<div><button id='sell-logout'>Logout</button></div>
+			<div><button id='sell-home'>Home</button></div>
+		</div>
+	</body>
+
+	<script src='./js/session.js' type='module'></script>
+	<script src='./js/abstractapp.js' type='module'></script>
+	<script src='./js/app.js' type='module'></script>
+</html>

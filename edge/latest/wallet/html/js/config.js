@@ -1,0 +1,8 @@
+
+export const config = {
+	//host: 'https://207.244.254.63',
+	host: 'http://207.244.254.63:60000',
+
+	accessKey: '00000000-0CC01FF023',
+	password: '914454269601597AE9CF272D8FA79CB1F9C9661B7991A0D24655D5464C7287A1'
+}
