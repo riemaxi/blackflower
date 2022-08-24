@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!--scalable=no no deja hacer zoom en la apk-->
+    <title>RinTalk</title>
+    <link rel="stylesheet" href="CSS/loader.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/chat.css">
+    
+    <link rel="icon" href="images/rintalk-ico.jpg">
+</head>
+
+<body>
+    <div id="container-global">
+        <div id="container-loader">
+        <span class="loader"></span>
+    </div>
+
+    <!---------------------------------------LOGIN VIEW-------------------------------------------->
+    <div class="container-login" id="container-login" style="display: none;">
+        <form class="form">
+            <div class="back-img">
+                <img class="back" src="images/iconos-back.svg" alt="">
+                <img class="rintalk-ico" src="images/rintalk-ico.svg" alt="">
+            </div>
+
+
+            <div class="form-container-login">
+                <h2 class="login-text">LOGIN </h2>
+
+                <div class="form-group">
+                    <img class="key-img" src="images/ico-key.svg" alt="">
+                    <input type="text" id="key" class="form-input" placeholder="Access Key">
+                </div>
+
+                <div class="form-group">
+                    <img class="password" src="images/ico-password.svg" alt="">
+                    <input type="password" id="password" class="form-input" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group-check">
+                <input type="checkbox" class="remember-pass" id="remember-pass">
+                <label for="remember" class="remember">Remeber me</label>
+            </div>
+            <p id="message" style="color: whitesmoke; display: none; font-size: small;"> Invalid Access Key or Password
+            </p>
+
+            <div class="form-group">
+                <a class="submit"> 
+                    <input type="button" class="form-submit" value="ENTER" id="enter" rel="stylesheet" disabled="true">
+                    <span id="loader-enter" style="display: none;"></span>
+                </a>
+            </div>
+            <a class="link-pass" id="new-password-btn">Send new password</a>
+
+
+        </form>
+        <div class="footer-login">
+            <img class="footer-img" src="images/ico-blackflower.svg" alt=""></a>
+            <p class="copyright"> All rights Reserved | Copyright © 2022 Business City 101</p>
+        </div>
+    </div>
+
+
+    <!---------------------------------------CONTACTS VIEW-------------------------------------------->
+    <div class="container-contacts" id="container-contacts"  style="display: none;">
+
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check" checked="false">
+                <label for="check" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact" class="contact-opacity"> <a id="h-m-contact"><img id="h-m-contact" class="img-small "
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer" style="display: none;">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down">
+                <div class="search-container">
+                    <a class="link-search"> <img class="img-search" src="images/search.svg" alt=""></a>
+                    <input class="search" type="text" id="search-contact" placeholder="Search contacts..." autocomplete="false">
+                </div>
+                <a class="add"> <img class="add-contact" id="add-contact" src="images/add.svg" alt=""></a>
+            </div>
+        </div>
+
+        <div class="center" id="contacts-list">
+            <div class="empty"></div>
+           
+           
+
+            <div class="empty2"></div>
+
+        </div>
+
+        <div class="footer">
+            <div class="footer-up">
+                <a><img class="btn-back" src="images/before.svg" alt=""> </a>
+                <div class="spanish-alphabet">English Alphabet</div>
+                <a><img class="btn-next" src="images/after.svg" alt=""> </a>
+            </div>
+
+            <div class="footer-down">
+                <ul class="alphabet">
+                    <li class="a"><a class="link">A</a></li>
+                    <li class="b"><a class="link">B</a></li>
+                    <li class="c"><a class="link">C</a></li>
+                    <li class="d"><a class="link">D</a></li>
+                    <li class="e"><a class="link">E</a></li>
+                    <li class="f"><a class="link">F</a></li>
+                    <li class="g"><a class="link">G</a></li>
+                    <li class="h"><a class="link">H</a></li>
+                    <li class="i"><a class="link">I</a></li>
+                    <li class="j"><a class="link">J</a></li>
+                    <li class="k"><a class="link">K</a></li>
+                    <li class="L"><a class="link">L</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!----------------------------ABOUT US VIEW-------------------------------------------------->
+    <div class="container-about" id="container-about" style="display: none;" >
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+                <!-- <div class="clock-container">
+                <img class="img-clock" src="images/clock.png" alt=" ">
+                <p class="hours">00:00</p>
+                 </div>-->
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-about">
+                <label for="check-about" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a></li>
+
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down ">
+                <div class="search-container divdown">
+                    <div class="title">
+                        <img class="img" src="images/about-white.svg" alt="">
+                        <h3 class="h3">ABOUT US</h3>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="center-form">
+            <div class="empty"></div>
+
+            
+            <div class="text-content">
+                <p class="text">RinTalk is our telephony app running on major mobile operatioln systems like IOS,
+                    Android and Raspberry PI OS.
+                    It allows users to select storage service providers in order to store contacts and personal
+                    settings.
+                </p>
+                <p class="text">As part of Blackflower ecosystem, RinTalk comes with the possibility to serve as
+                    witness,
+                    transporter as well as to sell activity related data.
+                </p>
+                <p class="text"> But RinTalk is not only about texting and video chats, the users can also carry on more
+                    advanced sessions like
+                    presentations and live canvas.
+
+                </p>
+            </div>
+
+
+
+        </div>
+
+        <div class="footer-container">
+            <img class="footer-img" src="images/ico-blackflower.svg" alt=""></a>
+            <p class="copyright"> All rights Reserved | Copyright © 2022 Business City 101</p>
+        </div>
+
+    </div>
+
+    <!---------------------------LOGOUT VIEW-------------------------------------------------->
+    <div class="container-logout" id="container-logout" style="display: none;">
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-logout">
+                <label for="check-logout" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down ">
+                <div class="search-container divdown">
+                    <div class="title">
+                        <img class="img" src="images/logout-title.svg" alt="">
+                        <h3 class="h3">LOG OUT</h3>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+
+        <div class="center">
+            <div class="empty"></div>
+
+            
+            <div class="text-content-small">
+                <p class="question">Are you sure you want to Log Out?
+                </p>
+                <div class="buttom">
+                    <button class="cancel-pro" id="cancel-logout-btn">Cancel</button>
+                    <button class="add-pro" id="logout-btn">Ok</button>
+                </div>
+            </div>
+
+            <div class="img-cont">
+                <img class="img-transp" src="images/fondo-transp.svg" alt="">
+            </div>
+
+        </div>
+
+        <div class="footer-container">
+            <img class="footer-img" src="images/ico-blackflower.svg" alt=""></a>
+            <p class="copyright"> All rights Reserved | Copyright © 2022 Business City 101</p>
+        </div>
+    </div>
+
+    <!---------------------------ADD CONTACT VIEW-------------------------------------------------->
+
+    <div class="container-add-contact" id="container-add-contact" style="display: none;">
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-add-contact">
+                <label for="check-add-contact" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down ">
+                <div class="search-container divdown">
+                    <div class="title">
+                        <h3 class="h3" id="title-add-contact">ADD CONTACT</h3>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="empty"></div>
+
+            <div id="add-contact-croppie">
+                
+                                   
+
+            </div>
+
+            <div id="container-add-contact-center">
+
+                <div class="add-avatar">
+                    <div class="preview-container">
+                        <img class="img-add" src="images/add-avatar.svg" id="preview" alt="">
+                        <input type="file" id="archivo" name="imagen" accept="image/*" />
+                    </div>
+                    
+                </div>
+    
+                <!-------Personal---------->      
+                <div class="personal-container">
+                    <h5 class="title-personal">Personal Information</h5>
+    
+                    <div class="names">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Name" id="contact-pers-name" autocomplete="off">
+                    </div>
+    
+                    <div class="surname">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Surname" id="contact-pers-surname"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="phone">
+                        <img class="img-contact" src="images/phone.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Phone" id="contact-pers-phone"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="mobile">
+                        <img class="img-contact" src="images/mobile.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Mobile" id="contact-pers-mobile"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="access-key">
+                        <img class="img-contact" src="images/access-key.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Acces Key" id="contact-pers-key"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="email">
+                        <img class="img-contact" src="images/email.svg" alt="">
+                        <input class="line-big" type="text" placeholder="E-mail" id="contact-pers-email" autocomplete="off">
+                    </div>
+    
+                    <div class="note">
+                        <img class="img-contact" src="images/note.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Note" id="contact-pers-note" autocomplete="off">
+                    </div>
+    
+                </div>
+    
+                <br>
+    
+                <!-------Profesional---------->
+                <div class="personal-container">
+                    <h5 class="title-personal">Profesional Information</h5>
+    
+                    <div class="names">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Name" id="contact-prof-name" autocomplete="off">
+                    </div>
+    
+                    <div class="surname">
+                        <img class="img-contact" src="images/name.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Surname" id="contact-prof-surname"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="profesion">
+                        <img class="img-contact" src="images/profesion.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Profesion" id="contact-prof-profesion"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="company">
+                        <img class="img-contact" src="images/company.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Company" id="contact-prof-company"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="phone">
+                        <img class="img-contact" src="images/phone.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Phone" id="contact-prof-phone"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="mobile">
+                        <img class="img-contact" src="images/mobile.svg" alt="">
+                        <input class="line-short" type="text" placeholder="Mobile" id="contact-prof-mobile"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="access-key">
+                        <img class="img-contact" src="images/access-key.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Acces Key" id="contact-prof-key"
+                            autocomplete="off">
+                    </div>
+    
+                    <div class="email">
+                        <img class="img-contact" src="images/email.svg" alt="">
+                        <input class="line-big" type="text" placeholder="E-mail" id="contact-prof-email" autocomplete="off">
+                    </div>
+    
+                    <div class="note">
+                        <img class="img-contact" src="images/note.svg" alt="">
+                        <input class="line-big" type="text" placeholder="Note" id="contact-prof-note" autocomplete="off">
+                    </div>
+                </div>
+    
+                <br>
+    
+                <div class="buttom">
+                    <button class="cancel-personal" id="cancel-add-contact-btn">Cancel</button>
+                    <button class="add-personal" id="add-contact-btn">Save</button>
+                </div>
+
+
+            </div>
+
+            
+        </div>
+
+    </div>
+
+    <!---------------------------MY PROFILE VIEW-------------------------------------------------->
+
+
+    <div class="container-profile" id="container-profile" style="display: none;">
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-add-profile">
+                <label for="check-add-profile" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down ">
+                <div class="search-container divdown">
+                    <div class="title">
+                        <img class="img" src="images/myprofile.svg" alt="">
+                        <h3 class="h3">MY PROFILE</h3>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="empty6"></div>
+            
+            <div class="add-avatar-profile">
+                <div class="preview-container-profile">
+                    <img class="img-add-profile" src="images/myprof1.svg" id="preview-profile" alt="">
+                    <input type="file" id="archivo-profile" name="imagenProfile" accept="image/*" />
+                </div>
+            </div>
+
+            <!-------Personal---------->
+            <div class="personal-container">
+                <h5 class="title-personal">Personal Information</h5>
+
+                <div class="names">
+                    <img class="img-contact" src="images/name.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Name" id="profile-pers-name">
+                </div>
+
+                <div class="surname">
+                    <img class="img-contact" src="images/name.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Surname" id="profile-pers-surname">
+                </div>
+
+                <div class="phone">
+                    <img class="img-contact" src="images/phone.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Phone" id="profile-pers-phone">
+                </div>
+
+                <div class="mobile">
+                    <img class="img-contact" src="images/mobile.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Mobile" id="profile-pers-mobile">
+                </div>
+
+                <div class="access-key">
+                    <img class="img-contact" src="images/access-key.svg" alt="">
+                    <input class="line-big" type="" placeholder="Acces Key" id="profile-pers-key" disabled="true">
+                </div>
+
+                <div class="email">
+                    <img class="img-contact" src="images/email.svg" alt="">
+                    <input class="line-big" type="text" placeholder="E-mail" id="profile-pers-email">
+                </div>
+
+                <div class="note">
+                    <img class="img-contact" src="images/note.svg" alt="">
+                    <input class="line-big" type="text" placeholder="Note" id="profile-pers-note">
+                </div>
+
+            </div>
+
+            <div class="buttom-down">
+                <button class="share" id="pers-info-share-btn">Share</button>
+            </div>
+
+            <!-------Profesional---------->
+            <div class="add-avatar-profile-prof">
+                <div class="preview-container-profile-pro">
+                    <img class="img-add-profile-prof" src="images/myprof2.svg" id="preview-profile1" alt="">
+                    <input type="file" id="archivo-profile1" name="imagenProfile1" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="personal-container">
+                <h5 class="title-personal">Profesional Information</h5>
+
+                <div class="names">
+                    <img class="img-contact" src="images/name.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Name" id="profile-prof-name">
+                </div>
+
+                <div class="surname">
+                    <img class="img-contact" src="images/name.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Surname" id="profile-prof-surname">
+                </div>
+
+                <div class="profesion">
+                    <img class="img-contact" src="images/profesion.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Profesion" id="profile-prof-profesion">
+                </div>
+
+                <div class="company">
+                    <img class="img-contact" src="images/company.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Company" id="profile-prof-company">
+                </div>
+
+                <div class="phone">
+                    <img class="img-contact" src="images/phone.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Phone" id="profile-prof-phone">
+                </div>
+
+                <div class="mobile">
+                    <img class="img-contact" src="images/mobile.svg" alt="">
+                    <input class="line-short" type="text" placeholder="Mobile" id="profile-prof-mobile">
+                </div>
+                <div class="access-key">
+                    <img class="img-contact" src="images/access-key.svg" alt="">
+                    <input class="line-big" type="text" placeholder="Acces Key" id="profile-prof-key">
+                </div>
+
+                <div class="email">
+                    <img class="img-contact" src="images/email.svg" alt="">
+                    <input class="line-big" type="text" placeholder="E-mail" id="profile-prof-email">
+                </div>
+
+                <div class="note">
+                    <img class="img-contact" src="images/note.svg" alt="">
+                    <input class="line-big" type="text" placeholder="Note" id="profile-prof-note">
+                </div>
+            </div>
+
+            <div class="buttom-down">
+                <button class="cancel-pro" id="info-cancel-btn">Cancel</button>
+                <button class="add-pro" id="info-ok-btn">Save</button>
+                <button class="share" id="prof-info-share-btn">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------PERSONAL CONTACT INFO VIEW----------------------------------------------->
+    <div class="container-personal-info" id="container-personal-info" style="display: none;">
+
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-personal-info">
+                <label for="check-personal-info" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down">
+                <div class="search-container divdown">
+                    <div class="title">
+                        <h3 class="h3">PERSONAL</h3>
+                    </div>
+                </div>                
+            </div>
+        </div>
+
+        <!-------------------center----------------------->
+        <div class="empty"></div>
+
+        <div class="img-call">
+            <img class="img-personal" id="personal-avatar" src="images/calling-men.svg" alt="">
+        </div>
+
+        <div class="container-information">
+
+            <div id="pers-info-container">
+
+            </div>
+
+            <div class="buttom-info">
+                <button id="pers-edit-btn" class="btn-personal">Edit</button>
+                <button id="pers-copy-btn" class="btn-personal">Copy</button>
+                <button id="pers-share-btn" class="btn-personal">Share</button>
+                <button id="pers-remove-btn" class="btn-personal">Remove</button>
+            </div>
+        </div>
+
+        
+
+        <div class="footer-call">
+            <div class="blue-footer">
+                
+            </div>
+
+            <div class="cancel-menu">
+                <img class="img-videocall" src="images/video-blue.svg" alt="" id="pers-info-video-btn">
+                <img class="btn-call" src="images/call-green.svg" alt="" id="pers-info-call-btn">
+                <img class="img-msj" src="images/msjblue.svg" alt="" id="pers-info-message-btn">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!----------------------PROFESIONAL CONTACT INFO VIEW----------------------------------------------->
+    <div class="container-profesional-info" id="container-profesional-info" style="display: none;" >
+
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-profesional-info">
+                <label for="check-profesional-info" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+            
+            <div class="header-down ">
+                <div class="search-container divdown">
+                    <div class="title">                       
+                        <h3 class="h3">PROFESIONAL</h3>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <!-------------------center----------------------->
+        <div class="empty"></div>
+
+        <div class="img-call">
+            <img class="img-personal" src="images/profesional.svg" alt="">
+        </div>
+
+        <div class="container-information">
+
+            <div class="title-and-ocupation">
+                <p class="name-contact">Anthony Smith</p>
+
+                <div class="information">
+                    <p class="cargo-company">Administrator - Business City 101</p>
+                </div>
+            </div>
+
+            <div class="group-information">
+                <img class="mobile-info" src="images/mobile.svg" alt="">
+                <label for="id-mobile">+189-654-8974</label>
+            </div>
+
+            <div class="group-information">
+                <img class="email-info" src="images/email.svg" alt="">
+                <label for="id-email">anthonysmith@gmail.com</label>
+            </div>
+
+            <div class="group-information">
+                <img class="note-info" src="images/note.svg" alt="">
+                <label for="id-note">Call on Monday</label>
+            </div>
+
+            <div class="buttom-info">
+                <button id="btn-edit" class="btn-personal">Edit</button>
+                <button id="btn-copy" class="btn-personal">Copy</button>
+                <button id="btn-share" class="btn-personal">Share</button>
+                <button id="btn-remove" class="btn-personal">Remove</button>
+            </div>
+        </div>
+
+        <div class="empty3"></div>
+
+        <div class="footer-call">
+            <div class="blue-footer">
+                
+            </div>
+
+            <div class="cancel-menu">
+                <img class="img-videocall" src="images/video-blue.svg" alt="">
+                <img class="btn-call" src="images/call-green.svg" alt="">
+                <img class="img-msj" src="images/msjblue.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------ACTIVE CALL----------------------------------------------->
+    <div class="container-active-call" id="container-active-call" style="display: none;">
+
+        <div class="user" id="active-call-view">
+            <img class="img-user" src="images/user-call.svg" alt="" id="avatar-active-call">
+        </div>
+
+        <div class="footer-call">
+            <span class="name-call" id="name-active-call">Name</span>
+            <div class="time">
+                <p class="time-text">00:00</p>
+            </div>
+
+            <div class="call-icos">
+                <img class="icons" src="images/microfono.svg" alt="" id="micro-active-call">
+                <img class="icons" src="images/altavoz.svg" alt="" id="speaker-active-call">
+                <img class="icons" src="images/video-call.svg" alt="" id="video-active-call">
+                <img class="icons" src="images/colgar.svg" alt="" id="end-active-call">
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------CALLING VIEW----------------------------------------------->
+    <div class="container-calling" id="container-calling" style="display: none;">
+
+        <div class="black-phone-cont">
+            <img class="black-phone" src="images/calling.svg" alt="">
+        </div>
+
+        <div class="img-call">
+            <img class="img-to-call" src="images/calling-men.svg" alt="" id="avatar-calling">
+        </div>
+
+        <span class="name-call" id="name-calling">Name</span>
+
+        <div class="call-menu">
+            <img class="icons" src="images/microfono.svg" alt="" id="micro-calling-btn">
+            <img class="icons" src="images/video-call.svg" alt="" id="video-calling-btn">
+            <img class="icons" src="images/altavoz.svg" alt="" id="speaker-calling-btn">
+        </div>
+
+        <div class="empty3"></div>
+
+        <audio id="caller-audio">
+            <source src="audio/beep.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="end-audio">
+            <source src="audio/end.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="footer-call">
+            <div class="blue-footer">
+                <img class="cancel-call" src="images/colgar-call.svg" alt="" id="cancel-calling-btn">
+
+            </div>
+
+            <div class="cancel-menu">
+
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------RECIVE CALL VIEW----------------------------------------------->
+    <div class="container-receive-call" id="container-receive-call" style="display: none;">
+
+        <div class="black-phone-cont">
+            <img class="black-phone" src="images/receive.svg" alt="">
+        </div>
+
+        <div class="img-call">
+            <img class="img-to-call" src="images/calling-men.svg" alt="" id="img-call-recive">
+        </div>
+
+        <span class="name-call" id="name-call-recive">Name</span>
+
+        <div class="call-menu">
+            <img class="icons" src="images/microfono.svg" alt="" id="micro-reciving-call-btn">
+            <img class="icons" src="images/video-call.svg" alt="" id="video-reciving-call-btn">
+            <img class="icons" src="images/altavoz.svg" alt="" id="speaker-reciving-call-btn">
+        </div>
+
+        <div class="empty3"></div>
+
+        <audio id="calling-audio">
+            <source src="audio/tone.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="footer-call">
+            <div class="blue-footer">
+                <img class="cancel-call" id="cancel-call-recive" src="images/colgar-call.svg" alt="">
+                <img class="acept-call" id="acept-call-recive" src="images/call-green.svg" alt="">
+
+            </div>
+
+            <div class="cancel-menu">
+
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------VIDEOCALL ACTIVE CALL----------------------------------------------->
+    <div class="container-active-video" id="container-active-video" style="display: none;">
+
+        <div class="user">
+            <img class="img-user-video" src="images/img-videocall.svg" alt="" id="img-videocall-recive" style="visibility: hidden;">           
+            <video class="video-absolute" src="" id="remoteVideo" autoplay="true"></video>
+            
+            <div class="user-small">
+                <img class="ims-video-small" src="images/img-videocall.svg" alt="" id="my-avatar-videocall-recive" style="visibility: hidden;">
+                <video class="small-absolute" src="" id="localVideo" autoplay="true" muted></video>
+            </div>
+
+        </div>
+
+        
+
+
+        <div class="footer-call">
+            <div class="time">
+                <p class="time-text" id="call-time-active-video">00:00</p>
+            </div>
+            <div class="call-icos">
+                <img class="icons-video" src="images/microfono.svg" alt="" id="micro-active-vidcall">
+                <img class="icons-video" src="images/altavoz.svg" alt="" id="speaker-active-vidcall">
+                <img class="icons-video" src="images/turn.svg" alt="" id="turn-active-vidcall">
+                <img class="icons-video" src="images/down-video.svg" alt="" id="video-active-vidcall">
+                <img class="icons-video" src="images/colgar.svg" alt="" id="end-active-vidcall">
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------SETTINGS VIEW-------------------------------------------------->
+    <div class="container-settings" id="container-settings" style="display: none;">
+        <img class="rintalk-menu" id="rintalk-menu" src="images/rintalk-ico.svg" alt="">
+
+        <div class="header">
+            <div class="header-up">
+                <!-- <div class="clock-container">
+            <img class="img-clock" src="images/clock.png" alt=" ">
+            <p class="hours">00:00</p>
+             </div>-->
+                <div class="coins-container">
+                    <img class="img-coins" src="images/coins.svg" alt="">
+                    <p class="money">00:00</p>
+                </div>
+
+                <!--------------HAMBURGUER MENU----------------->
+                <input type="checkbox" class="h-m-check" id="check-settings">
+                <label for="check-settings" class="bar-btn">
+                    <img class="img-bar" src="images/hamburguer.svg" alt="">
+                </label>
+
+
+                <ul class="hamburguer-menu">
+                    <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                                src="images/contacts.svg" alt="">Contacts</a></li>
+                    <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                                src="images/profile.svg" alt="">My Profile</a></li>
+                    <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                                alt="">About Us</a></li>
+                    <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                    </li>
+                    <ul class="setting-hamburguer">
+                        <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                        <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                        <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                    </ul>
+                    <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small"
+                                src="images/logout.svg" alt=""> Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="header-down ">
+                <div class="search-container divdown">
+                    <div class="title">
+                        <img class="img" src="images/setting-title.svg" alt="">
+                        <h3 class="h3">SETTINGS</h3>
+                    </div>
+                </div>               
+            </div>
+
+        </div>
+
+        <div class="center-settings">
+            <div class="empty"></div>
+
+           
+
+            <div class="container-back" id="id-radio" style="padding-bottom: 10px;">
+                <h3 class="sett-title">Theme</h3>
+                <img class="ico-sett" src="images/theme-settings.svg" alt="">
+
+                <div class="radio">
+                    <label for="light-t" class="light-label">Light</label>
+                    <input id="light" type="radio" class="light" name="theme">
+                </div>
+
+                <div class="radio">
+                    <label for="dark-t" class="dark-label">Dark</label>
+                    <input id="dark" type="radio" class="dark" name="theme">
+                </div>
+                <div class="radio">
+                    <label for="default" class="default-label">Default</label>
+                    <input id="default" type="radio" class="default" name="theme">
+                </div>
+
+                <div class="btn-settings">
+                </div>
+            </div>
+
+            <div class="container-back" style="padding-bottom: 10px;">
+                <h3 class="sett-title">Presentation</h3>
+                <img class="ico-sett" src="images/presentation-settings.svg" alt="">
+
+                <div class="radio">
+                    <label for="profesional" class="profesional-label">Profesional</label>
+                    <input id="profesional" type="radio" class="profesional" name="person" value="#000000">
+                </div>
+
+                <div class="radio">
+                    <label for="personal" class="personal-label">Personal</label>
+                    <input id="id-personal" type="radio" class="personal" name="person">
+                </div>
+
+                <div class="btn-settings">
+                </div>
+            </div>
+
+            <div class="container-back">
+                <h3 class="sett-title">Language</h3>
+                <img class="ico-sett" src="images/laguage-settings.svg" alt="">
+
+                <div class="languages">
+                    <img class="back-lang" src="images/back-lang.svg" alt="">
+                    <label for="language" class="language">Spanish Alphabet</label>
+                    <img class="next-lang" src="images/next-lang.svg" alt="">
+                </div>
+
+                <div class="btn-settings">
+                    <button class="btn-sett-ok">Ok</button>
+                    <button class="btn-sett-cancel">Cancel</button>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="footer-container">
+            <img class="footer-img" src="images/ico-blackflower.svg" alt=""></a>
+            <p class="copyright"> All rights Reserved | Copyright © 2022 Business City 101</p>
+        </div>
+
+    </div>
+
+
+    <!----------------------------WRITE MSJ VIEW-------------------------------------------------->
+    <div class="container-write-msj" id="container-write-msj" style="display: none;">
+
+        <div class="header-small">
+            
+            <div class="back-arrow" >   <!-----Este container es nuevo-->
+                <img class="img-arrow" src="images/back.svg" alt="" id="img-back-msj">
+            </div>
+
+            <div class="avatar-msj">
+                <img class="img-avatar-msj avatar" src="images/user1.svg" alt="" id="img-avatar-msj">
+            </div>
+            <div class="name-head">
+                <label for="name-user" class="name-user" id="name-user-msj"></label>
+            </div>
+            <div class="video-m">
+                <img src="images/video-msj.svg" alt="" id="id-video-m" class="video-im">
+            </div>
+            <div class="call-m">
+                <img src="images/call-msj.svg" alt="" id="id-call-m" class="call-im">
+            </div>
+
+
+
+            <!--------------HAMBURGUER MENU----------------->
+            <input type="checkbox" class="h-m-check" id="check-write">
+            <label for="check-write" class="bar-btn">
+                <img class="img-bar" src="images/hamburguer.svg" alt="">
+            </label>
+
+
+            <ul class="hamburguer-menu-write">
+                <li id="h-m-contact"> <a id="h-m-contact"><img id="h-m-contact" class="img-small"
+                            src="images/contacts.svg" alt="">Contacts</a></li>
+                <li id="h-m-my-profile"> <a id="h-m-my-profile"><img id="h-m-my-profile" class="img-small"
+                            src="images/profile.svg" alt="">My Profile</a></li>
+                <li id="h-m-about"> <a id="h-m-about"><img id="h-m-about" class="img-small" src="images/about.svg"
+                            alt="">About Us</a></li>
+                <li id="h-m-setting"><a id="h-m-setting" ><img class="img-small" src="images/settings.svg" alt="" id="h-m-setting"> Settings <!-- <img id="h-m-setting" class="triangule" src="images/triagule.png" alt=""> --></a>
+
+                </li>
+                <ul class="setting-hamburguer">
+                    <li> <a><img class="img-small" src="images/theme.svg" alt=""> Theme</a></li>
+                    <li> <a><img class="img-small" src="images/presentation.svg" alt=""> Presentations</a></li>
+                    <li> <a><img class="img-small" src="images/language.svg" alt=""> Language</a></li>
+                </ul>
+                <li id="h-m-logout"> <a id="h-m-logout"><img id="h-m-logout" class="img-small" src="images/logout.svg"
+                            alt=""> Log Out</a></li>
+            </ul>
+
+        </div>
+
+        <div class="center-msj">
+            <!--Hacer codigo de los msj del chat-->
+            <ul class="chat-list" id="divChatbox">
+                <!--chat Row -->
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-msj">
+
+            <div class="img-camera  margin" >
+                <img src="images/camera.svg" alt="" id="camera-message-btn" class="icos-padd camera">
+            </div>
+            <div class="messages" >
+                <input type="text" class="message" placeholder="Message" id="message-text"  autocomplete="off" >
+                
+            </div>
+            <div class="send margin ">
+                <img src="images/send.svg" alt="" id="send-message-btn"  class="icos-padd bg-send">
+            </div>
+
+            <div class="microfone margin">
+                <img src="images/micro.svg" alt="" id="micro-message-btn" class="icos-padd">
+            </div>
+            <div class="addimagen margin">
+                <img src="images/add-img.svg" alt="" id="addimage-message-btn" class="icos-padd">
+                <input type="file" id="archivo-addimg" name="imagen" accept="image/*" />
+            </div>
+            <div class="addfile margin">
+                <img src="images/add-file.svg" alt="" id="addfile-message-btn" class="icos-padd">                
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    
+
+    <script src="./peerjs.min.js"></script>
+    <script type="module" src="./session.js"></script>
+    <script type="module" src="./abstractapp.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script type="module" src="./config.js"></script>
+    <script type="module">
+        import { App } from "./app.js";
+        export let app = new App()
+
+        document.addEventListener("click", (e) => {
+            app.onIEvent(e)
+        })
+    </script>
+
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/avatar.js"></script>
+</body>
+
+</html>
